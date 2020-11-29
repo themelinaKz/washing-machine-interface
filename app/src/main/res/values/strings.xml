@@ -1,0 +1,36 @@
+<resources>
+    <!--activity_main-->
+    <string name="app_name">Washing Machine Interface</string>
+    <string name="s_wool">\tΜάλλινα</string>
+    <string name="s_delicate">\tΕυαίσθητα</string>
+    <string name="s_synthetic">\tΣυνθετικά</string>
+    <string name="s_cotton">\tΒαμβακερά</string>
+    <string name="radio_fabric">Ύφασμα</string>
+    <string name="s_30_celc">\t30 ℃</string>
+    <string name="s_40_celc">\t40 ℃</string>
+    <string name="s_60_celc">\t60 ℃</string>
+    <string name="s_70_celc">\t70 ℃</string>
+    <string name="s_95_celc">\t95 ℃</string>
+    <string name="radio_temp">Θερμοκρασία</string>
+    <string name="radio_prewash">Πρόπλυση</string>
+    <string name="s_no">\tΌχι</string>
+    <string name="s_yes">\tΝαι</string>
+    <string name="radio_dry">Στύψιμο</string>
+    <string name="s_drainage">\tΑποστράγγιση</string>
+    <string name="s_spin">\tΠεριστροφή</string>
+    <string name="radio_rinse">Επιπλέον\nΞέπλυμα</string>
+
+    <!--activity_last_screen-->
+    <string name="s_functioning">Σε Λειτουργία</string>
+    <string name="s_on_pause">Σε Παύση</string>
+    <string name="s_program">Πρόγραμμα Πλυντηρίου: </string>
+    <string name="s_test_program">ΠΡΟΓΡ ΤΕΣΤ</string>
+    <string name="s_remaining_time">Συνολικός Χρόνος που απομένει</string>
+    <string name="s_prewash">Πρόπλυση</string>
+    <string name="s_main_washing">Κύρια πλύση</string>
+
+    <!--popup_last_screen-->
+    <string name="s_stop_washing">Θέλετε να σταματήσετε την πλύση;</string>
+    <string name="b_yes_stop">Ναι</string>
+    <string name="b_no_continue">Όχι</string>
+</resources>

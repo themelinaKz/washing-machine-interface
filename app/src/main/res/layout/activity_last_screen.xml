@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@android:color/background_dark"
+    android:gravity="center_vertical">
+
+    <!--All left part (Program and buttons)-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@android:color/background_dark"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!-- Washer Program Text-->
+        <TextView
+            android:id="@+id/title_program"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/darker_gray"
+            android:text="@string/s_program"
+            android:textSize="20sp" />
+
+        <!--Program's Name Text-->
+        <TextView
+            android:id="@+id/title_sp_program"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!--Temperature-->
+        <TextView
+            android:id="@+id/title_temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:gravity="start"
+            android:textColor="@android:color/background_light"
+            android:text="@string/s_40_celc"
+            android:textSize="40sp" />
+
+        <LinearLayout
+            android:layout_width="239dp"
+            android:layout_height="138dp"
+            android:orientation="horizontal">
+
+            <!--Start or Pause Button-->
+            <ImageButton
+                android:id="@+id/b_start_pause"
+                android:layout_width="63dp"
+                android:layout_height="57dp"
+                android:layout_marginStart="38dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="12dp"
+                android:layout_weight="0"
+                android:background="@drawable/b_pause"/>
+
+            <!--Stop Button-->
+            <ImageButton
+                android:id="@+id/b_stop"
+                android:layout_width="57dp"
+                android:layout_height="57dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="12dp"
+                android:layout_weight="0"
+                android:background="@drawable/b_stop"
+                android:onClick="showPopup"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--Title (Functiong or on Pause)-->
+
+    <!--All right part (Remaining Time)-->
+    <TextView
+        android:id="@+id/title_function"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0"
+        android:gravity="center"
+        android:text="@string/s_functioning"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+        android:textColor="@android:color/background_light"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp">
+
+        <!--Remaining time text-->
+        <TextView
+            android:id="@+id/txv_remaining_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/s_remaining_time"
+            android:textColor="@android:color/background_light"
+            android:textSize="20sp" />
+
+        <!--Timer-->
+        <TextView
+            android:id="@+id/txv_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:layout_gravity="center"
+            android:textColor="@android:color/background_light"
+            android:textSize="50sp" />
+
+        <!--Stage and Part completed-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <!--Stage-->
+            <TextView
+                android:id="@+id/title_stage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="@string/s_prewash"
+                android:textColor="@android:color/background_light"
+                android:textSize="22sp" />
+
+            <!--Part completed-->
+            <TextView
+                android:id="@+id/title_stagepart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="\t1/4"
+                android:textColor="@android:color/background_light"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

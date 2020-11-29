@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="480dp"
+    android:layout_height="200dp"
+    android:layout_gravity="center"
+    android:background="@android:color/background_light">
+
+    <Button
+        android:id="@+id/b_no_continue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="bottom"
+        android:background="#F8F4777B"
+        android:text="@string/b_no_continue"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="283dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@android:dimen/app_icon_size"
+        android:layout_weight="0"
+        android:gravity="center"
+        android:text="@string/s_stop_washing"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/b_yes_stop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_marginBottom="5dp"
+        android:layout_gravity="bottom"
+        android:background="#F877F484"
+        android:text="@string/b_yes_stop"
+        android:textStyle="bold" />
+</LinearLayout>
