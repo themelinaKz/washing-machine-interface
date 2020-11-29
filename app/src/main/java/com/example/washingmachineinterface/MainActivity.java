@@ -12,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
     }
 
     public void toBeginnerActivity(View view){
@@ -23,5 +22,10 @@ public class MainActivity extends AppCompatActivity {
     public void toAdvancedActivity(View view){
         Intent advanced = new Intent(MainActivity.this, AdvancedActivity.class);
         startActivity(advanced);
+    }
+
+    public void toLastScreen(View view){
+        Intent last = new Intent(MainActivity.this, LastScreen.class);
+        startActivity(last);
     }
 }
