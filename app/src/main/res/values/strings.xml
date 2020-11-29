@@ -5,6 +5,8 @@
     <string name="s_delicate">\tΕυαίσθητα</string>
     <string name="s_synthetic">\tΣυνθετικά</string>
     <string name="s_cotton">\tΒαμβακερά</string>
+    <string name="s_cotton_mix"><![CDATA[\tΒαμβακερά\n& Ανάμεικτα]]></string>
+    <string name="s_mix">\tΑνάμεικτα</string>
     <string name="radio_fabric">Ύφασμα</string>
     <string name="s_30_celc">\t30 ℃</string>
     <string name="s_40_celc">\t40 ℃</string>
@@ -19,6 +21,25 @@
     <string name="s_drainage">\tΑποστράγγιση</string>
     <string name="s_spin">\tΠεριστροφή</string>
     <string name="radio_rinse">Επιπλέον\nΞέπλυμα</string>
+    <string name="title_advanced">Προσαρμοσμένη Πλύση</string>
+    <string name="help">Βοήθεια</string>
+    <string name="start">Εκκίνηση</string>
+    <string name="title_beginner">Βασική Πλύση</string>
+    <string name="radio_color">Χρώμα</string>
+    <string name="s_white">\tΆσπρα</string>
+    <string name="s_dark">\tΣκούρα</string>
+    <string name="s_colorful">\tΧρωματιστά</string>
+    <string name="radio_dirt">Βρωμιά</string>
+    <string name="s_alot">\tΠολύ</string>
+    <string name="s_alittle">\tΛίγο</string>
+    <string name="radio_allergy">Αλλεργία</string>
+    <string name="main_screen">Αρχική Οθόνη</string>
+    <string name="s_0rpm">\t 0 στροφές</string>
+    <string name="s_600rpm">\t600 στροφές</string>
+    <string name="s_1200rpm">\t1200 στροφές</string>
+    <string name="s_1000rpm">\t1000 στροφές</string>
+    <string name="s_800rpm">\t800 στροφές</string>
+
 
     <!--activity_last_screen-->
     <string name="s_functioning">Σε Λειτουργία</string>
