@@ -379,7 +379,7 @@
         android:drawableTop="@drawable/favorite_button"
         android:textOn=""
         android:textOff=""
-        android:checked="true"
+        android:checked="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/start_advanced" />
 

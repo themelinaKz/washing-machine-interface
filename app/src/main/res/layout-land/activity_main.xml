@@ -1,45 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/background_dark"
     android:gravity="center_horizontal"
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/beg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_beginner"
-        android:onClick="toBeginnerActivity"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/adv"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        android:id="@+id/main_help"
+        android:layout_width="92dp"
+        android:layout_height="52dp"
+        android:background="@drawable/help_2"
+        android:radius="10dp"
+        android:text="@string/s_help"
+        android:textAlignment="gravity"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:onClick="toMainHelp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <ImageButton
         android:id="@+id/adv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/title_advanced"
+        android:background="@drawable/washer_lever"
         android:onClick="toAdvancedActivity"
-        app:layout_constraintStart_toEndOf="@+id/beg"
+        android:text="@string/title_advanced"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/beg"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintVertical_bias="0.411" />
+
+    <TextView
+        android:id="@+id/txv_beginner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/s_beginner"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/beg"
+        app:layout_constraintStart_toStartOf="@+id/beg"
+        app:layout_constraintTop_toBottomOf="@+id/beg"
+        app:layout_constraintVertical_bias="0.052" />
+
+    <ImageButton
+        android:id="@+id/beg"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:background="@drawable/beginner_tshirt"
+        android:onClick="toBeginnerActivity"
+        android:text="@string/title_beginner"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/adv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.425" />
+
+    <TextView
+        android:id="@+id/txv_advanced"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/s_advanced"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/adv"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toEndOf="@+id/txv_beginner"
+        app:layout_constraintStart_toStartOf="@+id/adv"
+        app:layout_constraintTop_toBottomOf="@+id/adv"
+        app:layout_constraintVertical_bias="0.052" />
 
     <Button
         android:id="@+id/last"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/washing"
+        android:drawableBottom="@drawable/ic_favorite_filled"
         android:onClick="toLastScreen"
-        app:layout_constraintStart_toStartOf="parent"
+        android:text="ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.474"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/beg"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
+        app:layout_constraintVertical_bias="0.851" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

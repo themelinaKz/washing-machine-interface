@@ -1,5 +1,11 @@
 <resources>
     <!--activity_main-->
+    <string name="s_beginner">ΒΑΣΙΚΗ ΠΛΥΣΗ \n(για αρχάριους)</string>
+    <string name="s_advanced">ΠΡΟΣΑΡΜΟΣΜΕΝΗ ΠΛΥΣΗ \n\t(για προχωρημένους)</string>
+    <string name="s_help">ΒΟΗΘΕΙΑ</string>
+    <string name="s_main_help"><b>⦿</b> \tΑν δεν γνωρίζεις πώς να βάζεις πλυντήριο, πάτα την 1η επιλογή (για αρχάριους)\n<b>⦿</b> \tΔιαφορετικά, πάτα την 2η επιλογή (για προχωρημένους) \n<b>⦿</b> \tΑν θες να δεις τη λίστα με τις αναπημένες σου πλύσεις, πάτα ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ</string>
+
+    <!--activity_beginner_advanced-->
     <string name="app_name">Washing Machine Interface</string>
     <string name="s_wool">\tΜάλλινα</string>
     <string name="s_delicate">\tΕυαίσθητα</string>
@@ -39,7 +45,6 @@
     <string name="s_1200rpm">\t1200 στροφές</string>
     <string name="s_1000rpm">\t1000 στροφές</string>
     <string name="s_800rpm">\t800 στροφές</string>
-
 
     <!--activity_last_screen-->
     <string name="s_functioning">Σε Λειτουργία</string>

@@ -43,7 +43,7 @@ public class LastScreen extends AppCompatActivity {
 
         // example of input (time(ex. 2mins), name, temperature, Prewash, MainWash, Stir, WringOut)
         inputs = new ArrayList<Object>(Arrays.asList(time_in_mills,"Βαμβακερά","40 ℃","Πρόπλυση","Κύρια Πλύση","Στύψιμο"));
-        // TODO decide whether time of each stage will be defined as input or the time will be distributed
+        // TODO the time will be distributed between the stages
         int num_stages = inputs.size()-3;  //how many stages
         long time_stage = time_in_mills/num_stages;  //time per stage (if time is distributed)
 
