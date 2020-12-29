@@ -12,7 +12,7 @@
         android:id="@+id/main_help"
         android:layout_width="92dp"
         android:layout_height="52dp"
-        android:background="@drawable/help_2"
+        android:background="@drawable/help"
         android:radius="10dp"
         android:text="@string/s_help"
         android:textAlignment="gravity"
