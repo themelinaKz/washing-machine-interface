@@ -14,6 +14,7 @@
         android:layout_marginBottom="16dp"
         android:background="#F8F4777B"
         android:text="@string/b_no_continue"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/b_yes_stop"
@@ -32,6 +33,7 @@
         android:gravity="center"
         android:text="@string/s_stop_washing"
         android:textSize="24sp"
+        android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/b_yes_stop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -49,6 +51,7 @@
         android:layout_marginBottom="16dp"
         android:background="#F877F484"
         android:text="@string/b_yes_stop"
+        android:textColor="@android:color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

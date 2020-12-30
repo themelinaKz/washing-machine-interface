@@ -357,6 +357,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/help"
+        android:textColor="@android:color/black"
         android:textAllCaps="false"
         android:background="@android:color/white"
         app:layout_constraintTop_toTopOf="parent"
@@ -368,6 +369,7 @@
         android:background="@color/neonGreen"
         android:onClick="toLastScreen"
         android:text="@string/start"
+        android:textColor="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="10dp"/>

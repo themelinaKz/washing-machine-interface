@@ -82,6 +82,7 @@
         android:drawableBottom="@drawable/ic_favorite_filled"
         android:onClick="toList"
         android:text="ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
+        android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.474"
