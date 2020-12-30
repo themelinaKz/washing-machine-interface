@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.washingmachineinterface.LastScreen;
+import com.example.washingmachineinterface.MainActivity;
 import com.example.washingmachineinterface.R;
 
 import java.util.ArrayList;
@@ -41,6 +42,8 @@ public class FavoritesList extends AppCompatActivity {
         items.add(new AdvancedWash(FavoriteItem.Program.Wool, true, 30, 0, false));
         items.add(new AdvancedWash(FavoriteItem.Program.Cotton, false, 60, 600, false));
         items.add(new BeginnerWash(FavoriteItem.Program.Synthetic, FavoriteItem.Color.Dark, false, true));
+        items.add(new BeginnerWash(FavoriteItem.Program.Delicate, FavoriteItem.Color.Light, true, false));
+        items.add(new AdvancedWash(FavoriteItem.Program.Cotton, false, 60, 600, false));
     }
 
     private void setUpRecyclerView() {
@@ -57,6 +60,11 @@ public class FavoritesList extends AppCompatActivity {
     public void toLastScreen(){
         Intent last = new Intent(FavoritesList.this, LastScreen.class);
         startActivity(last);
+    }
+
+    public void mainScreen(View view){
+        Intent main = new Intent(FavoritesList.this, MainActivity.class);
+        startActivity(main);
     }
 
     public void removeItem(int position) {

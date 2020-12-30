@@ -34,12 +34,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favorites_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="250dp"
         android:scrollbars="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/back_b"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/favorites_title" />
+        app:layout_constraintTop_toBottomOf="@id/favorites_title"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:id="@+id/empty_msg"
@@ -53,5 +55,15 @@
         android:text="@string/no_saved"
         android:textSize="20sp"
         android:visibility="gone"/>
+
+    <ImageButton
+        android:id="@+id/back_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back"
+        android:onClick="mainScreen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:contentDescription="@string/main_screen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
