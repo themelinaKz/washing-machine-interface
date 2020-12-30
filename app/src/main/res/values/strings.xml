@@ -65,4 +65,5 @@
     <string name="favorite">Αγαπημένο</string>
     <string name="delete">Διαγραφή</string>
     <string name="no_saved">Δεν έχετε αποθηκευμένες πλύσεις αυτή τη στιγμή</string>
+    <string name="favorites_title">Λίστα Αγαπημένων</string>
 </resources>

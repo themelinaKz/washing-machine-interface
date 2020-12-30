@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="70dp"
     android:orientation="horizontal"
+    android:layout_marginBottom="5dp"
     android:id="@+id/item_layout"
     android:gravity="center_horizontal"
-    android:background="@android:color/background_dark">
+    android:background="@drawable/border">
 
 
     <ImageButton
         android:id="@+id/favorite_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_favorite_filled"
         android:contentDescription="@string/favorite"/>
@@ -20,6 +22,7 @@
         android:id="@+id/prewash_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp">
 
@@ -43,6 +46,7 @@
         android:id="@+id/program_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp">
 
@@ -66,6 +70,7 @@
         android:id="@+id/temp_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp">
         <TextView
@@ -88,6 +93,7 @@
         android:id="@+id/dry_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp">
         <TextView
@@ -110,6 +116,7 @@
         android:id="@+id/rinse_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp">
         <TextView
@@ -132,6 +139,7 @@
         android:id="@+id/color_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp">
 
@@ -155,6 +163,7 @@
         android:id="@+id/dirt_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp">
 
@@ -178,7 +187,7 @@
         android:id="@+id/allergy_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp">
 
@@ -204,7 +213,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_gravity="center"
         android:contentDescription="@string/delete"
-        android:src="@drawable/ic_delete"/>
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_delete_white"/>
 
 </LinearLayout>
