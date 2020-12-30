@@ -26,16 +26,16 @@ class AdvancedWash extends FavoriteItem {
         this.prewash = prewash;
     }
 
-    public int getTemperature() {
-        return temperature;
+    public String getTemperature() {
+        return String.valueOf(temperature);
     }
 
     public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
 
-    public int getRpm() {
-        return rpm;
+    public String getRpm() {
+        return String.valueOf(rpm);
     }
 
     public void setRpm(int rpm) {

@@ -19,4 +19,9 @@ public class AdvancedActivity extends AppCompatActivity {
         Intent main = new Intent(AdvancedActivity.this, MainActivity.class);
         startActivity(main);
     }
+
+    public void toLastScreen(View view){
+        Intent last = new Intent(AdvancedActivity.this, LastScreen.class);
+        startActivity(last);
+    }
 }

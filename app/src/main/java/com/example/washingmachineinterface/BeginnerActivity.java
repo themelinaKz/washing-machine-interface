@@ -19,4 +19,9 @@ public class BeginnerActivity extends AppCompatActivity {
         Intent main = new Intent(BeginnerActivity.this, MainActivity.class);
         startActivity(main);
     }
+
+    public void toLastScreen(View view){
+        Intent last = new Intent(BeginnerActivity.this, LastScreen.class);
+        startActivity(last);
+    }
 }

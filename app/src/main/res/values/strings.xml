@@ -25,7 +25,7 @@
     <string name="s_yes">\tΝαι</string>
     <string name="radio_dry">Στύψιμο</string>
     <string name="s_drainage">\tΑποστράγγιση</string>
-    <string name="s_spin">\tΠεριστροφή</string>
+    <string name="s_spin">\tΣτροφές</string>
     <string name="radio_rinse">Επιπλέον\nΞέπλυμα</string>
     <string name="title_advanced">Προσαρμοσμένη Πλύση</string>
     <string name="help">Βοήθεια</string>
@@ -60,4 +60,9 @@
     <string name="b_yes_stop">Ναι</string>
     <string name="b_no_continue">Όχι</string>
     <string name="washing">Πλύσιμο</string>
+
+    <!--activity_favorites-->
+    <string name="favorite">Αγαπημένο</string>
+    <string name="delete">Διαγραφή</string>
+    <string name="no_saved">Δεν έχετε αποθηκευμένες πλύσεις αυτή τη στιγμή</string>
 </resources>

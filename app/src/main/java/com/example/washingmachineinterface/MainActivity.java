@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.washingmachineinterface.favorites.FavoritesList;
+
 public class MainActivity extends AppCompatActivity {
     Dialog dialog; //for popup
 
@@ -31,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(advanced);
     }
 
-    public void toLastScreen(View view){
-        Intent last = new Intent(MainActivity.this, LastScreen.class);
-        startActivity(last);
+    public void toList(View view){
+        Intent list = new Intent(MainActivity.this, FavoritesList.class);
+        startActivity(list);
     }
 
     public void toMainHelp(View view) {

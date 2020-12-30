@@ -1,46 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:id="@+id/item_layout"
-    android:gravity="center_horizontal">
+    android:gravity="center_horizontal"
+    android:background="@android:color/background_dark">
 
-    <ToggleButton
-        android:id="@+id/favorite_toggle"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+
+    <ImageButton
+        android:id="@+id/favorite_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:drawableTop="@drawable/favorite_button"
-        android:textOn=""
-        android:textOff=""
-        android:checked="false" />
+        android:src="@drawable/ic_favorite_filled"
+        android:contentDescription="@string/favorite"/>
 
     <RelativeLayout
         android:id="@+id/prewash_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp">
+
         <TextView
             android:id="@+id/prewash_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="@string/radio_prewash"/>
+            android:text="@string/radio_prewash" />
 
         <TextView
             android:id="@+id/prewash_choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/prewash_title"
-            android:text="@string/s_yes"/>
+            android:layout_centerHorizontal="true"
+            android:text="@string/s_yes" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/program_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp">
+
         <TextView
             android:id="@+id/program_title"
             android:layout_width="wrap_content"
@@ -52,15 +57,17 @@
             android:id="@+id/program_choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/program_title"
-            android:text="@string/s_wool"/>
+            android:layout_centerHorizontal="true"
+            android:text="@string/s_wool" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/temp_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp">
         <TextView
             android:id="@+id/temp_title"
             android:layout_width="wrap_content"
@@ -80,7 +87,9 @@
     <RelativeLayout
         android:id="@+id/dry_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp">
         <TextView
             android:id="@+id/dry_title"
             android:layout_width="wrap_content"
@@ -100,7 +109,9 @@
     <RelativeLayout
         android:id="@+id/rinse_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp">
         <TextView
             android:id="@+id/rinse_title"
             android:layout_width="wrap_content"
@@ -120,7 +131,10 @@
     <RelativeLayout
         android:id="@+id/color_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp">
+
         <TextView
             android:id="@+id/color_title"
             android:layout_width="wrap_content"
@@ -132,15 +146,18 @@
             android:id="@+id/color_choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/color_title"
-            android:text="@string/s_dark"/>
+            android:layout_centerHorizontal="true"
+            android:text="@string/s_dark" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/dirt_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp">
+
         <TextView
             android:id="@+id/dirt_title"
             android:layout_width="wrap_content"
@@ -152,15 +169,19 @@
             android:id="@+id/dirt_choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/dirt_title"
-            android:text="@string/s_yes"/>
+            android:layout_centerHorizontal="true"
+            android:text="@string/s_yes" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/allergy_group"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp">
+
         <TextView
             android:id="@+id/allergy_title"
             android:layout_width="wrap_content"
@@ -172,20 +193,18 @@
             android:id="@+id/allergy_choice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/allergy_title"
-            android:text="@string/s_yes"/>
+            android:layout_centerHorizontal="true"
+            android:text="@string/s_yes" />
     </RelativeLayout>
 
     <ImageButton
         android:id="@+id/delete_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/rinse_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/ic_delete"
-        android:contentDescription="Delete"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:contentDescription="@string/delete"
+        android:src="@drawable/ic_delete"/>
 
 </LinearLayout>
