@@ -29,21 +29,22 @@ public class FavoritesList extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_favorites);
 
-        setUpList();
+        getList();
         setUpRecyclerView();
 
         empty_message = findViewById(R.id.empty_msg);
         toggleEmptyMessage();
     }
 
-    public void setUpList(){
-        items = new ArrayList<>();
+    public void getList(){
+        items = MainActivity.favorites;
         //temporary initialisation
-        items.add(new AdvancedWash(FavoriteItem.Program.Wool, true, 30, 0, false));
-        items.add(new AdvancedWash(FavoriteItem.Program.Cotton, false, 60, 600, false));
-        items.add(new BeginnerWash(FavoriteItem.Program.Synthetic, FavoriteItem.Color.Dark, false, true));
-        items.add(new BeginnerWash(FavoriteItem.Program.Delicate, FavoriteItem.Color.Light, true, false));
-        items.add(new AdvancedWash(FavoriteItem.Program.Cotton, false, 60, 600, false));
+//        items.add(new AdvancedWash(FavoriteItem.Program.Wool.toString(), true, 30, 0, false));
+//        items.add(new AdvancedWash(FavoriteItem.Program.Wool, true, 30, 0, false));
+//        items.add(new AdvancedWash(FavoriteItem.Program.Cotton, false, 60, 600, false));
+//        items.add(new BeginnerWash(FavoriteItem.Program.Synthetic, FavoriteItem.Color.Dark, false, true));
+//        items.add(new BeginnerWash(FavoriteItem.Program.Delicate, FavoriteItem.Color.Light, true, false));
+//        items.add(new AdvancedWash(FavoriteItem.Program.Cotton, false, 60, 600, false));
     }
 
     private void setUpRecyclerView() {
@@ -68,7 +69,7 @@ public class FavoritesList extends AppCompatActivity {
     }
 
     public void removeItem(int position) {
-        items.remove(position);
+        MainActivity.removeItem(position);
         favoritesView.removeViewAt(position);
         adapter.notifyItemRemoved(position);
         adapter.notifyItemRangeChanged(position, items.size());

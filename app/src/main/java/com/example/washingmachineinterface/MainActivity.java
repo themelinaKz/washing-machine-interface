@@ -4,16 +4,21 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.washingmachineinterface.favorites.FavoriteItem;
 import com.example.washingmachineinterface.favorites.FavoritesList;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     Dialog dialog; //for popup
+    public static ArrayList<FavoriteItem> favorites = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,5 +55,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         dialog.show();
+    }
+
+    public static void addItem(FavoriteItem item){
+        if(!favorites.contains(item)){
+            favorites.add(item);
+        }
+    }
+
+    public static void removeItem(int position){
+        favorites.remove(position);
+    }
+
+    public static void removeItem(FavoriteItem item){
+        favorites.remove(item);
     }
 }

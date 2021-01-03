@@ -1,27 +1,27 @@
 package com.example.washingmachineinterface.favorites;
 
-class BeginnerWash extends FavoriteItem {
-    Color color;
+public class BeginnerWash extends FavoriteItem {
+    String color;
     boolean dirt;
     boolean allergy;
 
-    public BeginnerWash(Program program, Color color, boolean dirt, boolean allergy) {
+    public BeginnerWash(String program, String color, boolean dirt, boolean allergy) {
         super(program);
         this.color = color;
         this.dirt = dirt;
         this.allergy = allergy;
     }
 
-    public Color getColor() {
+    public String getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(String color) {
         this.color = color;
     }
 
     public String getDirt(){
-        return dirt? "Yes" : "No";
+        return dirt? "Πολύ" : "Λίγο";
     }
 
     public boolean isDirt() {
@@ -33,7 +33,7 @@ class BeginnerWash extends FavoriteItem {
     }
 
     public String getAllergy(){
-        return allergy? "Yes" : "No";
+        return allergy? "Ναι" : "Όχι";
     }
 
     public boolean isAllergy() {
@@ -42,5 +42,16 @@ class BeginnerWash extends FavoriteItem {
 
     public void setAllergy(boolean allergy) {
         this.allergy = allergy;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        BeginnerWash that = (BeginnerWash) o;
+        return dirt == that.dirt &&
+                allergy == that.allergy &&
+                color.equals(that.color);
     }
 }
