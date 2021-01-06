@@ -53,7 +53,7 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
         startActivity(last);
     }
 
-    public void chooseProgram(){
+    private void chooseProgram(){
         r_fabric = findViewById(fabric.getCheckedRadioButtonId());
         s_fabric = r_fabric.getText().toString();
         r_color = findViewById(color.getCheckedRadioButtonId());

@@ -16,6 +16,9 @@ import com.example.washingmachineinterface.favorites.FavoriteItem;
 public class AdvancedActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     RadioGroup fabric, temperature, prewash, dry, rinse;
+    RadioButton r_fabric, r_temp, r_prewash, r_dry, r_rinse;
+    String s_fabric, s_temp, s_prewash, s_dry, s_rinse;
+    boolean is_prewash, is_rinse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,28 +42,34 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
     }
 
     public void toLastScreen(View view){
+        chooseProgram();
         Intent last = new Intent(AdvancedActivity.this, LastScreen.class);
+        last.putExtra("program",s_fabric);
+        last.putExtra("dry",s_dry);
+        last.putExtra("temp", s_temp);
+        last.putExtra("prewash", is_prewash);
+        last.putExtra("rinse", is_rinse);
         startActivity(last);
     }
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-        RadioButton r_fabric = findViewById(fabric.getCheckedRadioButtonId());
-        String s_fabric = r_fabric.getText().toString();
+        r_fabric = findViewById(fabric.getCheckedRadioButtonId());
+        s_fabric = r_fabric.getText().toString();
 
-        RadioButton r_temp = findViewById(temperature.getCheckedRadioButtonId());
-        String s_temp = r_temp.getText().toString();
+        r_temp = findViewById(temperature.getCheckedRadioButtonId());
+        s_temp = r_temp.getText().toString();
 
-        RadioButton r_prewash = findViewById(prewash.getCheckedRadioButtonId());
-        String s_prewash = r_prewash.getText().toString();
-        boolean is_prewash = s_prewash.equals(getResources().getString(R.string.s_yes));
+        r_prewash = findViewById(prewash.getCheckedRadioButtonId());
+        s_prewash = r_prewash.getText().toString();
+        is_prewash = s_prewash.equals(getResources().getString(R.string.s_yes));
 
-        RadioButton r_dry = findViewById(dry.getCheckedRadioButtonId());
-        String s_dry = r_dry.getText().toString();
+        r_dry = findViewById(dry.getCheckedRadioButtonId());
+        s_dry = r_dry.getText().toString();
 
-        RadioButton r_rinse = findViewById(rinse.getCheckedRadioButtonId());
-        String s_rinse = r_rinse.getText().toString();
-        boolean is_rinse = s_rinse.equals(getResources().getString(R.string.s_yes));
+        r_rinse = findViewById(rinse.getCheckedRadioButtonId());
+        s_rinse = r_rinse.getText().toString();
+        is_rinse = s_rinse.equals(getResources().getString(R.string.s_yes));
 
         FavoriteItem item = new AdvancedWash(s_fabric, is_prewash, s_temp, s_dry, is_rinse);
         if(checked){
@@ -68,5 +77,24 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
         }else{
             MainActivity.removeItem(item);
         }
+    }
+
+    private void chooseProgram(){
+        r_fabric = findViewById(fabric.getCheckedRadioButtonId());
+        s_fabric = r_fabric.getText().toString();
+
+        r_temp = findViewById(temperature.getCheckedRadioButtonId());
+        s_temp = r_temp.getText().toString();
+
+        r_prewash = findViewById(prewash.getCheckedRadioButtonId());
+        s_prewash = r_prewash.getText().toString();
+        is_prewash = s_prewash.equals(getResources().getString(R.string.s_yes));
+
+        r_dry = findViewById(dry.getCheckedRadioButtonId());
+        s_dry = r_dry.getText().toString();
+
+        r_rinse = findViewById(rinse.getCheckedRadioButtonId());
+        s_rinse = r_rinse.getText().toString();
+        is_rinse = s_rinse.equals(getResources().getString(R.string.s_yes));
     }
 }
