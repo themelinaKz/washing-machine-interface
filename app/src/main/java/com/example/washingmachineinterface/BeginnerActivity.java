@@ -94,6 +94,8 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
             if(s_color.equals(getResources().getString(R.string.s_dark)) || s_color.equals(getResources().getString(R.string.s_colorful))){
                 if(!is_dirt && !is_allergy){
                     temp = getResources().getString(R.string.s_40_celc);
+                }else {
+                    temp = getResources().getString(R.string.s_60_celc);
                 }
             }else{
                 temp = getResources().getString(R.string.s_60_celc);
@@ -104,6 +106,8 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
             if(s_color.equals(getResources().getString(R.string.s_dark)) || s_color.equals(getResources().getString(R.string.s_colorful))){
                 if(!is_dirt && !is_allergy){
                     temp = getResources().getString(R.string.s_30_celc);
+                }else {
+                    temp = getResources().getString(R.string.s_40_celc);
                 }
             }else{
                 temp = getResources().getString(R.string.s_40_celc);
