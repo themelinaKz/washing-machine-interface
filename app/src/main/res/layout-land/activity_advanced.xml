@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="start"
                 android:button="@drawable/radio_selector"
-                android:text="@string/s_cotton"
+                android:text="@string/s_cotton_mix"
                 android:textColor="@drawable/color_selector"
                 android:textSize="25sp" />
 

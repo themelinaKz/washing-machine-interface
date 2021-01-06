@@ -17,6 +17,10 @@ import com.example.washingmachineinterface.favorites.FavoriteItem;
 public class BeginnerActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
 
     RadioGroup fabric, color, dirt, allergy;
+    RadioButton r_fabric, r_color, r_dirt, r_allergy;
+    String s_fabric, s_color, s_dirt, s_allergy;
+    boolean is_dirt, is_allergy;
+    String dry, temp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,22 +43,92 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
     }
 
     public void toLastScreen(View view){
+        chooseProgram();
         Intent last = new Intent(BeginnerActivity.this, LastScreen.class);
+        last.putExtra("program",s_fabric);
+        last.putExtra("dry",dry);
+        last.putExtra("temp", temp);
+        last.putExtra("prewash", is_dirt);
+        last.putExtra("rinse", is_dirt);
         startActivity(last);
+    }
+
+    public void chooseProgram(){
+        r_fabric = findViewById(fabric.getCheckedRadioButtonId());
+        s_fabric = r_fabric.getText().toString();
+        r_color = findViewById(color.getCheckedRadioButtonId());
+        s_color = r_color.getText().toString();
+        r_dirt = findViewById(dirt.getCheckedRadioButtonId());
+        s_dirt = r_dirt.getText().toString();
+        is_dirt = s_dirt.equals(getResources().getString(R.string.s_alot));
+        r_allergy = findViewById(allergy.getCheckedRadioButtonId());
+        s_allergy = r_allergy.getText().toString();
+        is_allergy = s_allergy.equals(getResources().getString(R.string.s_yes));
+
+
+        if(s_fabric.equals(getResources().getString(R.string.s_cotton_mix))){
+            //Cotton mix
+            dry = getResources().getString(R.string.s_800rpm);
+            if(is_allergy){
+                if(is_dirt){
+                    temp = getResources().getString(R.string.s_95_celc);
+                }else{
+                    temp = getResources().getString(R.string.s_70_celc);
+                }
+            }else{
+                if(s_color.equals(getResources().getString(R.string.s_dark))){
+                    if(is_dirt){
+                        temp = getResources().getString(R.string.s_60_celc);
+                    }else{
+                        temp = getResources().getString(R.string.s_40_celc);
+                    }
+                }else if(s_color.equals(getResources().getString(R.string.s_white))){
+                    temp = getResources().getString(R.string.s_95_celc);
+                }else if(s_color.equals(getResources().getString(R.string.s_colorful))){
+                    temp = getResources().getString(R.string.s_60_celc);
+                }
+            }
+        }else if(s_fabric.equals(getResources().getString(R.string.s_synthetic))){
+            //Synthetic
+            dry = getResources().getString(R.string.s_1000rpm);
+            if(s_color.equals(getResources().getString(R.string.s_dark)) || s_color.equals(getResources().getString(R.string.s_colorful))){
+                if(!is_dirt && !is_allergy){
+                    temp = getResources().getString(R.string.s_40_celc);
+                }
+            }else{
+                temp = getResources().getString(R.string.s_60_celc);
+            }
+        }else if(s_fabric.equals(getResources().getString(R.string.s_delicate))){
+            //Delicate
+            dry = getResources().getString(R.string.s_0rpm);
+            if(s_color.equals(getResources().getString(R.string.s_dark)) || s_color.equals(getResources().getString(R.string.s_colorful))){
+                if(!is_dirt && !is_allergy){
+                    temp = getResources().getString(R.string.s_30_celc);
+                }
+            }else{
+                temp = getResources().getString(R.string.s_40_celc);
+            }
+        }else if(s_fabric.equals(getResources().getString(R.string.s_wool))){
+            //Wool
+            dry = getResources().getString(R.string.s_600rpm);
+            temp = getResources().getString(R.string.s_40_celc);
+        }
+
+
     }
 
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-        RadioButton r_fabric = findViewById(fabric.getCheckedRadioButtonId());
-        String s_fabric = r_fabric.getText().toString();
-        RadioButton r_color = findViewById(color.getCheckedRadioButtonId());
-        String s_color = r_color.getText().toString();
-        RadioButton r_dirt = findViewById(dirt.getCheckedRadioButtonId());
-        String s_dirt = r_dirt.getText().toString();
-        boolean is_dirt = s_dirt.equals(getResources().getString(R.string.s_alot));
-        RadioButton r_allergy = findViewById(allergy.getCheckedRadioButtonId());
-        String s_allergy = r_allergy.getText().toString();
-        boolean is_allergy = s_allergy.equals(getResources().getString(R.string.s_yes));
+        r_fabric = findViewById(fabric.getCheckedRadioButtonId());
+        s_fabric = r_fabric.getText().toString();
+        r_color = findViewById(color.getCheckedRadioButtonId());
+        s_color = r_color.getText().toString();
+        r_dirt = findViewById(dirt.getCheckedRadioButtonId());
+        s_dirt = r_dirt.getText().toString();
+        is_dirt = s_dirt.equals(getResources().getString(R.string.s_alot));
+        r_allergy = findViewById(allergy.getCheckedRadioButtonId());
+        s_allergy = r_allergy.getText().toString();
+        is_allergy = s_allergy.equals(getResources().getString(R.string.s_yes));
 
         FavoriteItem item = new BeginnerWash(s_fabric, s_color, is_dirt, is_allergy);
         if(checked){

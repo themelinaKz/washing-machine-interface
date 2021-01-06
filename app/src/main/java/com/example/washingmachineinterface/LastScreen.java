@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LastScreen extends AppCompatActivity {
+    String program, temp, dry;
+    boolean prewash, rinse;
+
     TextView txv_function;
     TextView txv_timer;
     TextView txv_temperature;
@@ -47,6 +50,15 @@ public class LastScreen extends AppCompatActivity {
         int num_stages = inputs.size()-3;  //how many stages
         long time_stage = time_in_mills/num_stages;  //time per stage (if time is distributed)
 
+        //Get washing details
+        Bundle bundle = getIntent().getExtras();
+        assert bundle != null;
+        program = bundle.getString("program");
+        dry = bundle.getString("dry");
+        temp = bundle.getString("temp");
+        prewash = bundle.getBoolean("prewash");
+        rinse = bundle.getBoolean("rinse");
+
         b_start_pause = findViewById(R.id.b_start_pause);
         b_stop = findViewById(R.id.b_stop);
         txv_function = findViewById(R.id.title_function);
@@ -54,8 +66,8 @@ public class LastScreen extends AppCompatActivity {
         txv_temperature = findViewById(R.id.title_temperature);
         txv_program = findViewById(R.id.title_sp_program);
 
-        txv_temperature.setText((String)inputs.get(2)); //40 ℃
-        txv_program.setText((String)inputs.get(1));     //Βαμβακερά
+        txv_temperature.setText(temp); //40 ℃
+        txv_program.setText(program);     //Βαμβακερά
 
         b_start_pause.setOnClickListener(new View.OnClickListener() {
             @Override
