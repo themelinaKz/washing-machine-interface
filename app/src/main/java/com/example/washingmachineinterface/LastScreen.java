@@ -2,6 +2,7 @@ package com.example.washingmachineinterface;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.example.washingmachineinterface.favorites.FavoritesList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -41,8 +44,7 @@ public class LastScreen extends AppCompatActivity {
         setContentView(R.layout.activity_last_screen);
         dialog = new Dialog(this);
 
-        /* TODO get inputs from previous activity (time, Name, Temperature, and Stages)
-         * the time should either initially be or be converted into milliseconds*/
+        /* the time should be in milliseconds*/
 
         // example of input (time(ex. 2mins), name, temperature, Prewash, MainWash, Stir, WringOut)
         inputs = new ArrayList<Object>(Arrays.asList(time_in_mills,"Βαμβακερά","40 ℃","Πρόπλυση","Κύρια Πλύση","Στύψιμο"));
@@ -116,10 +118,8 @@ public class LastScreen extends AppCompatActivity {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                stopTimer();
-                b_start_pause.setBackgroundResource(R.drawable.b_play);
-                txv_function.setText(R.string.s_on_pause);
-                isWorking = false;
+                Intent main = new Intent(LastScreen.this, MainActivity.class);
+                startActivity(main);
                 dialog.dismiss();
             }
         });
