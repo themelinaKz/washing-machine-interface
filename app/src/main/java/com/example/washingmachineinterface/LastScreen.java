@@ -1,4 +1,5 @@
 package com.example.washingmachineinterface;
+import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.example.washingmachineinterface.favorites.FavoritesList;
 
@@ -88,6 +90,13 @@ public class LastScreen extends AppCompatActivity {
                 }
             }
         });
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                showPopup(getCurrentFocus());
+            }
+        });
         startTimer();
     }
 
@@ -118,6 +127,7 @@ public class LastScreen extends AppCompatActivity {
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // go to main activity
                 Intent main = new Intent(LastScreen.this, MainActivity.class);
                 startActivity(main);
                 dialog.dismiss();
