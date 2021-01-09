@@ -1,12 +1,15 @@
 package com.example.washingmachineinterface;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +24,7 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
     String s_fabric, s_color, s_dirt, s_allergy;
     boolean is_dirt, is_allergy;
     String dry, temp;
+    Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,7 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
 
         ToggleButton favorite = findViewById(R.id.favorite_beginner);
         favorite.setOnCheckedChangeListener(this);
+        dialog = new Dialog(this);
     }
 
     public void mainScreen(View view){
@@ -51,6 +56,20 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
         last.putExtra("prewash", is_dirt);
         last.putExtra("rinse", is_dirt);
         startActivity(last);
+    }
+
+    public void toBeginnerHelp(View view){
+        dialog.setContentView(R.layout.popup_help);
+        TextView text = dialog.findViewById(R.id.help);
+        text.setText(R.string.s_choices_help);
+        Button close = dialog.findViewById(R.id.b_close);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
     private void chooseProgram(){

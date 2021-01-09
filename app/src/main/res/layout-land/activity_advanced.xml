@@ -354,12 +354,13 @@
 
     <Button
         android:id="@+id/help_advanced"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/help"
-        android:textColor="@android:color/black"
-        android:textAllCaps="false"
-        android:background="@android:color/white"
+        android:layout_width="92dp"
+        android:layout_height="52dp"
+        android:text="@string/s_help"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:background="@drawable/help"
+        android:onClick="toAdvancedHelp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
     <Button

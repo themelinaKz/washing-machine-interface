@@ -21,13 +21,13 @@
 
     <Button
         android:id="@+id/help_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/help"
-        android:textAllCaps="false"
-
-        android:textColor="@android:color/black"
-        android:background="@android:color/white"
+        android:layout_width="92dp"
+        android:layout_height="52dp"
+        android:text="@string/s_help"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:background="@drawable/help"
+        android:onClick="toFavoritesHelp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

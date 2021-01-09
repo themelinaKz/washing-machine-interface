@@ -1,9 +1,11 @@
 package com.example.washingmachineinterface.favorites;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,6 +29,8 @@ public class FavoritesList extends AppCompatActivity {
     private String program, dry, temp;
     boolean prewash, rinse;
 
+    Dialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,7 @@ public class FavoritesList extends AppCompatActivity {
 
         empty_message = findViewById(R.id.empty_msg);
         toggleEmptyMessage();
+        dialog = new Dialog(this);
     }
 
     public void getList(){
@@ -75,6 +80,20 @@ public class FavoritesList extends AppCompatActivity {
         last.putExtra("prewash", prewash);
         last.putExtra("rinse", rinse);
         startActivity(last);
+    }
+
+    public void toFavoritesHelp(View view){
+        dialog.setContentView(R.layout.popup_help);
+        TextView text = dialog.findViewById(R.id.help);
+        text.setText(R.string.s_favorites_help);
+        Button close = dialog.findViewById(R.id.b_close);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
     public void mainScreen(View view){
