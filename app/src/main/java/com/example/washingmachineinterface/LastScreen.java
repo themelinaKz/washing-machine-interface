@@ -7,11 +7,11 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.VideoView;
 
 import com.example.washingmachineinterface.favorites.FavoritesList;
 
@@ -25,19 +25,27 @@ public class LastScreen extends AppCompatActivity {
     TextView txv_function;
     TextView txv_timer;
     TextView txv_temperature;
-    TextView txv_program;
+    TextView txv_program, txv_stage, txv_stagePart;
     ImageButton b_start_pause;
     ImageButton b_stop;
     CountDownTimer timer;
     Dialog dialog;    // for popup
     boolean isWorking = true;
-    ArrayList<Object> inputs;
+
+    // milliseconds per stage
+    final long PREWASH = 25*60*1000;
+    final long MAIN = 30*60*1000;
+    final long RINSE_DRY = 15*60*1000;
 
     /* time_in_mills holds the time shown in the activity
        1 sec = 1000 milliseconds
        1 min = 60 seconds = 60 * 1000 mills (60000)
        1 hour = 60 mins = 60 * 60000 mills (3600000)*/
-    long time_in_mills = 2 * 60 * 60000; // 2 hours
+
+    // main washing and dry stages are standard
+    long time_in_mills = MAIN + RINSE_DRY;
+    long initialTime;
+    String stages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +53,6 @@ public class LastScreen extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_last_screen);
         dialog = new Dialog(this);
-
-        /* the time should be in milliseconds*/
-
-        // example of input (time(ex. 2mins), name, temperature, Prewash, MainWash, Stir, WringOut)
-        inputs = new ArrayList<Object>(Arrays.asList(time_in_mills,"Βαμβακερά","40 ℃","Πρόπλυση","Κύρια Πλύση","Στύψιμο"));
-        // TODO the time will be distributed between the stages
-        int num_stages = inputs.size()-3;  //how many stages
-        long time_stage = time_in_mills/num_stages;  //time per stage (if time is distributed)
 
         //Get washing details
         Bundle bundle = getIntent().getExtras();
@@ -63,15 +63,29 @@ public class LastScreen extends AppCompatActivity {
         prewash = bundle.getBoolean("prewash");
         rinse = bundle.getBoolean("rinse");
 
+        // keep only number of rotations
+        dry = dry.substring(0, dry.trim().indexOf(" στροφές")+1);
+
+        stages = " 1/"+(2 + (prewash ? 1 : 0) + (rinse ? 1 : 0));
+
+        // compute total time of washing
+        time_in_mills += (prewash ? PREWASH : 0);
+        time_in_mills += (rinse ? RINSE_DRY : 0);
+        initialTime = time_in_mills;
+
         b_start_pause = findViewById(R.id.b_start_pause);
         b_stop = findViewById(R.id.b_stop);
         txv_function = findViewById(R.id.title_function);
         txv_timer = findViewById(R.id.txv_timer);
         txv_temperature = findViewById(R.id.title_temperature);
         txv_program = findViewById(R.id.title_sp_program);
+        txv_stage = findViewById(R.id.title_stage);
+        txv_stagePart = findViewById(R.id.title_stagepart);
 
-        txv_temperature.setText(temp); //40 ℃
-        txv_program.setText(program);     //Βαμβακερά
+        txv_temperature.setText(temp);
+        txv_program.setText(program);
+        txv_stage.setText((prewash ? R.string.radio_prewash : R.string.s_main_washing));
+        txv_stagePart.setText(stages);
 
         b_start_pause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,6 +156,7 @@ public class LastScreen extends AppCompatActivity {
             public void onTick(long millisUntilFinished) {
                 // update timer each second
                 time_in_mills = millisUntilFinished;
+                updateStage();
                 updateTimer();
             }
             @Override
@@ -163,5 +178,51 @@ public class LastScreen extends AppCompatActivity {
                       ":" + (mins<10 ? "0"+mins : mins) +
                       ":" + (secs<10 ? "0"+secs : secs);
         txv_timer.setText(time);
+    }
+
+    private void updateStage(){
+        // keep previous stage
+        String previous = (String) txv_stage.getText();
+
+        if (prewash) {
+            if (time_in_mills >= initialTime - PREWASH)
+                txv_stage.setText(R.string.radio_prewash);
+            else if (time_in_mills >= initialTime - (PREWASH+MAIN))
+                txv_stage.setText(R.string.s_main_washing);
+            else if (time_in_mills >= initialTime - (PREWASH+MAIN+RINSE_DRY))
+                if (rinse)
+                    txv_stage.setText(getResources().getString(R.string.radio_rinse).replace("\n"," "));
+                else if (dry.equals("0"))
+                    txv_stage.setText(R.string.s_drainage);
+                else
+                    txv_stage.setText(R.string.radio_dry);
+            else if (time_in_mills >= initialTime - (PREWASH+MAIN+2*RINSE_DRY))
+                if (dry.equals("0"))
+                    txv_stage.setText(R.string.s_drainage);
+                else
+                    txv_stage.setText(R.string.radio_dry);
+        }
+        else {
+            if (time_in_mills >= initialTime - MAIN)
+                txv_stage.setText(R.string.s_main_washing);
+            else if (time_in_mills >= initialTime - (MAIN+RINSE_DRY))
+                if (rinse)
+                    txv_stage.setText(getResources().getString(R.string.radio_rinse).replace("\n"," "));
+                else if (dry.equals("0"))
+                    txv_stage.setText(R.string.s_drainage);
+                else
+                    txv_stage.setText(R.string.radio_dry);
+            else if (time_in_mills >= initialTime - (MAIN+2*RINSE_DRY))
+                if (dry.equals("0"))
+                    txv_stage.setText(R.string.s_drainage);
+                else
+                    txv_stage.setText(R.string.radio_dry);
+        }
+
+        // update stage part if stage has changed
+        if (!txv_stage.getText().equals(previous)){
+            stages = stages.replace(stages.charAt(1), (char) (Integer.parseInt(String.valueOf(stages.charAt(1)))+1 +'0'));
+            txv_stagePart.setText(stages);
+        }
     }
 }

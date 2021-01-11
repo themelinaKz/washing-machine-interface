@@ -52,7 +52,6 @@
     <string name="s_program">Πρόγραμμα Πλυντηρίου: </string>
     <string name="s_test_program">ΠΡΟΓΡ ΤΕΣΤ</string>
     <string name="s_remaining_time">Συνολικός Χρόνος που απομένει</string>
-    <string name="s_prewash">Πρόπλυση</string>
     <string name="s_main_washing">Κύρια πλύση</string>
 
     <!--popup_last_screen-->

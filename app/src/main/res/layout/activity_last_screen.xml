@@ -136,7 +136,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center_horizontal"
-                android:text="@string/s_prewash"
                 android:textColor="@android:color/background_light"
                 android:textSize="22sp" />
 
