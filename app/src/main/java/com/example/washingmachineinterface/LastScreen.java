@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.washingmachineinterface.favorites.FavoritesList;
@@ -111,7 +114,43 @@ public class LastScreen extends AppCompatActivity {
                 showPopup(getCurrentFocus());
             }
         });
-        startTimer();
+
+        //Show detergent Reminder Popup first
+//        startTimer();
+        detergentReminder();
+    }
+
+    public void detergentReminder(){
+        dialog.setContentView(getLayoutInflater().inflate(R.layout.popup_detergent_reminder, null));
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        ImageView image = dialog.findViewById(R.id.detergent_image);
+        if(prewash){
+            image.setImageResource(R.drawable.rem_prewash_detergent);
+        }else{
+            image.setImageResource(R.drawable.rem_main_detergent);
+        }
+
+        Button ready = dialog.findViewById(R.id.b_ready);
+        Button close = dialog.findViewById(R.id.b_close);
+
+        ready.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                startTimer();
+            }
+        });
+
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                startTimer();
+            }
+        });
+
+        dialog.show();
     }
 
     // Popup

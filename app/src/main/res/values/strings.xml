@@ -67,4 +67,10 @@
     <string name="favorites_title">Λίστα Αγαπημένων</string>
     <string name="s_start_washing">Θέλετε να ξεκινήσετε την πλύση;</string>
     <string name="s_favorites_help"><b>⦿</b> \tΕδώ είναι η λίστα με τις αγαπημένες σου πλύσεις! Κάθε πλύση αναγράφει τις επιλογές που έχεις κάνει\n<b>⦿</b> \tΑν θες να εκτελέσεις κάποια πλύση απλώς πάτα πάνω της\n<b>⦿</b> \tΑν θες να διαγράψεις κάποια πλύση, πάτα τον κάδο\n<b>⦿</b> \tΕίτε θελήσεις να εκτελέσεις μία πλύση, είτε να τη διαγράψεις, σου ζητείται να επιβεβαιώσεις την επιλογή σου, οπότε μην ανησυχείς αν πατήσεις κάτι καταλάθος!\n<b>⦿</b> \tΑν θες να πας στην προηγούμενη οθόνη πάτα το βελάκι κάτω αριστερά</string>
+
+<!--    popup_detergent_reminder-->
+    <string name="detergent_reminder">Detergent Reminder</string>
+    <string name="b_ready">Έτοιμο!</string>
+    <string name="s_reminder">Μην ξεχάσετε!</string>
+
 </resources>
