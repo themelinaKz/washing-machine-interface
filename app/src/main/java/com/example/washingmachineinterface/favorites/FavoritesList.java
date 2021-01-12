@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -47,13 +48,6 @@ public class FavoritesList extends AppCompatActivity {
 
     public void getList(){
         items = MainActivity.favorites;
-        //temporary initialisation
-//        items.add(new AdvancedWash(FavoriteItem.Program.Wool.toString(), true, 30, 0, false));
-//        items.add(new AdvancedWash(FavoriteItem.Program.Wool, true, 30, 0, false));
-//        items.add(new AdvancedWash(FavoriteItem.Program.Cotton, false, 60, 600, false));
-//        items.add(new BeginnerWash(FavoriteItem.Program.Synthetic, FavoriteItem.Color.Dark, false, true));
-//        items.add(new BeginnerWash(FavoriteItem.Program.Delicate, FavoriteItem.Color.Light, true, false));
-//        items.add(new AdvancedWash(FavoriteItem.Program.Cotton, false, 60, 600, false));
     }
 
     private void setUpRecyclerView() {
@@ -67,12 +61,12 @@ public class FavoritesList extends AppCompatActivity {
         favoritesView.setAdapter(adapter);
     }
 
-    public void toLastScreen(FavoriteItem item){
-        if(item instanceof BeginnerWash){
-            chooseProgram((BeginnerWash)item);
-        }else{
-            chooseProgram((AdvancedWash)item);
-        }
+    public void toLastScreen(){
+//        if(item instanceof BeginnerWash){
+//            chooseProgram((BeginnerWash)item);
+//        }else{
+//            chooseProgram((AdvancedWash)item);
+//        }
         Intent last = new Intent(FavoritesList.this, LastScreen.class);
         last.putExtra("program", program);
         last.putExtra("dry",dry);
@@ -80,6 +74,64 @@ public class FavoritesList extends AppCompatActivity {
         last.putExtra("prewash", prewash);
         last.putExtra("rinse", rinse);
         startActivity(last);
+    }
+
+    public void showPopup(final FavoriteItem item){
+        if(item instanceof BeginnerWash){
+            chooseProgram((BeginnerWash)item);
+            dialog.setContentView(R.layout.popup_begin_wash_beginner);
+            TextView t_program = dialog.findViewById(R.id.program_choice);
+            TextView t_colors = dialog.findViewById(R.id.color_choice);
+            TextView t_dirt = dialog.findViewById(R.id.dirt_choice);
+            TextView t_allergy = dialog.findViewById(R.id.allergy_choice);
+
+            t_program.setText(program);
+            t_colors.setText(((BeginnerWash) item).getColor());
+            t_dirt.setText(((BeginnerWash) item).getDirt());
+            t_allergy.setText(((BeginnerWash) item).getAllergy());
+        }else{
+            chooseProgram((AdvancedWash)item);
+            dialog.setContentView(R.layout.popup_begin_wash_advanced);
+            TextView t_program = dialog.findViewById(R.id.program_choice);
+            TextView t_prewash = dialog.findViewById(R.id.prewash_choice);
+            TextView t_temperature = dialog.findViewById(R.id.temp_choice);
+            TextView t_dry = dialog.findViewById(R.id.dry_choice);
+            TextView t_rinse = dialog.findViewById(R.id.rinse_choice);
+
+            t_program.setText(program);
+            t_prewash.setText(prewash?"Ναι":"Όχι");
+            t_temperature.setText(temp);
+            t_dry.setText(dry);
+            t_rinse.setText(rinse?"Ναι":"Όχι");
+        }
+
+        Button yes;
+        Button no;
+
+        yes = dialog.findViewById(R.id.b_yes_stop);
+        no = dialog.findViewById(R.id.b_no_continue);
+
+
+//        Log.d("AdvancedActivity", "showPopup: fabric "+s_fabric);
+//        Log.d("AdvancedActivity", "showPopup: prewash "+s_prewash);
+//        Log.d("AdvancedActivity", "showPopup: temp "+s_temp);
+//        Log.d("AdvancedActivity", "showPopup: dry "+s_dry);
+//        Log.d("AdvancedActivity", "showPopup: rinse "+s_rinse);
+
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                toLastScreen();
+            }
+        });
+        dialog.show();
     }
 
     public void toFavoritesHelp(View view){

@@ -24,13 +24,16 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
     String s_fabric, s_color, s_dirt, s_allergy;
     boolean is_dirt, is_allergy;
     String dry, temp;
-    Dialog dialog;
+
+    Dialog dialog; //popup
+    TextView t_program, t_colors, t_dirt, t_allergy; //dialog settings
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beginner);
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        dialog = new Dialog(this);
 
         fabric = findViewById(R.id.group_fabric);
         color = findViewById(R.id.group_color);
@@ -39,7 +42,42 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
 
         ToggleButton favorite = findViewById(R.id.favorite_beginner);
         favorite.setOnCheckedChangeListener(this);
-        dialog = new Dialog(this);
+    }
+
+    public void showPopup(View v){
+        chooseProgram();
+
+        Button yes;
+        Button no;
+        dialog.setContentView(R.layout.popup_begin_wash_beginner);
+
+        yes = dialog.findViewById(R.id.b_yes_stop);
+        no = dialog.findViewById(R.id.b_no_continue);
+
+        t_program = dialog.findViewById(R.id.program_choice);
+        t_colors = dialog.findViewById(R.id.color_choice);
+        t_dirt = dialog.findViewById(R.id.dirt_choice);
+        t_allergy = dialog.findViewById(R.id.allergy_choice);
+
+        t_program.setText(s_fabric);
+        t_colors.setText(s_color);
+        t_dirt.setText(s_dirt);
+        t_allergy.setText(s_allergy);
+
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                toLastScreen(v);
+            }
+        });
+        dialog.show();
     }
 
     public void mainScreen(View view){
@@ -48,7 +86,6 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
     }
 
     public void toLastScreen(View view){
-        chooseProgram();
         Intent last = new Intent(BeginnerActivity.this, LastScreen.class);
         last.putExtra("program",s_fabric);
         last.putExtra("dry",dry);

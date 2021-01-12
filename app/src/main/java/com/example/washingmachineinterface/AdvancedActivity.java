@@ -3,6 +3,7 @@ package com.example.washingmachineinterface;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -22,13 +23,16 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
     RadioButton r_fabric, r_temp, r_prewash, r_dry, r_rinse;
     String s_fabric, s_temp, s_prewash, s_dry, s_rinse;
     boolean is_prewash, is_rinse;
+
     Dialog dialog;
+    TextView t_program, t_prewash, t_temperature, t_dry, t_rinse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advanced);
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+        dialog = new Dialog(this);
 
         fabric = findViewById(R.id.group_fabric);
         temperature = findViewById(R.id.group_temp);
@@ -38,7 +42,49 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
 
         ToggleButton favorite = findViewById(R.id.favorite_advanced);
         favorite.setOnCheckedChangeListener(this);
-        dialog = new Dialog(this);
+    }
+
+    public void showPopup(View v){
+        chooseProgram();
+
+        Button yes;
+        Button no;
+        dialog.setContentView(R.layout.popup_begin_wash_advanced);
+
+        yes = dialog.findViewById(R.id.b_yes_stop);
+        no = dialog.findViewById(R.id.b_no_continue);
+
+        t_program = dialog.findViewById(R.id.program_choice);
+        t_prewash = dialog.findViewById(R.id.prewash_choice);
+        t_temperature = dialog.findViewById(R.id.temp_choice);
+        t_dry = dialog.findViewById(R.id.dry_choice);
+        t_rinse = dialog.findViewById(R.id.rinse_choice);
+
+        t_program.setText(s_fabric);
+        t_prewash.setText(s_prewash);
+        t_temperature.setText(s_temp);
+        t_dry.setText(s_dry);
+        t_rinse.setText(s_rinse);
+        Log.d("AdvancedActivity", "showPopup: fabric "+s_fabric);
+        Log.d("AdvancedActivity", "showPopup: prewash "+s_prewash);
+        Log.d("AdvancedActivity", "showPopup: temp "+s_temp);
+        Log.d("AdvancedActivity", "showPopup: dry "+s_dry);
+        Log.d("AdvancedActivity", "showPopup: rinse "+s_rinse);
+
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                toLastScreen(v);
+            }
+        });
+        dialog.show();
     }
 
     public void mainScreen(View view){
@@ -47,7 +93,6 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
     }
 
     public void toLastScreen(View view){
-        chooseProgram();
         Intent last = new Intent(AdvancedActivity.this, LastScreen.class);
         last.putExtra("program",s_fabric);
         last.putExtra("dry",s_dry);

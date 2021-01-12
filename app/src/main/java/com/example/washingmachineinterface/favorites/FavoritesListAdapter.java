@@ -65,7 +65,7 @@ class FavoritesListAdapter extends RecyclerView.Adapter<FavoritesListAdapter.Fav
             @Override
             public void onClick(View view) {
                 //TODO begin wash
-                context.toLastScreen(item);
+                context.showPopup(item);
             }
         });
     }
