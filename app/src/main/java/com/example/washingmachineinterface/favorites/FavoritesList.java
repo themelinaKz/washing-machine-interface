@@ -173,6 +173,7 @@ public class FavoritesList extends AppCompatActivity {
     }
 
     private void chooseProgram(BeginnerWash item){
+        program = item.getProgram();
         prewash = item.isDirt();
         rinse = item.isDirt();
 
