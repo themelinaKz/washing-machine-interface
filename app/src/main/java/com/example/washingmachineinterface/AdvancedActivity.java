@@ -50,6 +50,7 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
         Button yes;
         Button no;
         dialog.setContentView(R.layout.popup_begin_wash_advanced);
+        dialog.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
 
         yes = dialog.findViewById(R.id.b_yes_stop);
         no = dialog.findViewById(R.id.b_no_continue);
@@ -104,6 +105,7 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
 
     public void toAdvancedHelp(View view){
         dialog.setContentView(R.layout.popup_help);
+        dialog.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
         TextView text = dialog.findViewById(R.id.help);
         text.setText(R.string.s_choices_help);
         Button close = dialog.findViewById(R.id.b_close);

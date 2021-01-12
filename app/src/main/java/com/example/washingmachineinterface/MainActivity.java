@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void toMainHelp(View view) {
         dialog.setContentView(R.layout.popup_help);
+        dialog.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
         TextView text = dialog.findViewById(R.id.help);
         text.setText(R.string.s_main_help);
         Button close = dialog.findViewById(R.id.b_close);

@@ -80,6 +80,7 @@ public class FavoritesList extends AppCompatActivity {
         if(item instanceof BeginnerWash){
             chooseProgram((BeginnerWash)item);
             dialog.setContentView(R.layout.popup_begin_wash_beginner);
+            dialog.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
             TextView t_program = dialog.findViewById(R.id.program_choice);
             TextView t_colors = dialog.findViewById(R.id.color_choice);
             TextView t_dirt = dialog.findViewById(R.id.dirt_choice);
@@ -92,6 +93,7 @@ public class FavoritesList extends AppCompatActivity {
         }else{
             chooseProgram((AdvancedWash)item);
             dialog.setContentView(R.layout.popup_begin_wash_advanced);
+            dialog.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
             TextView t_program = dialog.findViewById(R.id.program_choice);
             TextView t_prewash = dialog.findViewById(R.id.prewash_choice);
             TextView t_temperature = dialog.findViewById(R.id.temp_choice);
@@ -136,6 +138,7 @@ public class FavoritesList extends AppCompatActivity {
 
     public void toFavoritesHelp(View view){
         dialog.setContentView(R.layout.popup_help);
+        dialog.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
         TextView text = dialog.findViewById(R.id.help);
         text.setText(R.string.s_favorites_help);
         Button close = dialog.findViewById(R.id.b_close);

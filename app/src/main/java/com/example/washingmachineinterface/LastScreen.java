@@ -124,6 +124,7 @@ public class LastScreen extends AppCompatActivity {
         Button yes;
         Button no;
         dialog.setContentView(R.layout.popup_last_screen);
+        dialog.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
 
         yes = dialog.findViewById(R.id.b_yes_stop);
         no = dialog.findViewById(R.id.b_no_continue);
