@@ -30,7 +30,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_beginner">
+        app:layout_constraintTop_toBottomOf="@+id/title_beginner"
+        android:layout_marginBottom="50dp">
 
         <RadioGroup
             android:id="@+id/group_fabric"
@@ -260,8 +261,9 @@
 
     <ToggleButton
         android:id="@+id/favorite_beginner"
-        android:layout_width="50dp"
+        android:layout_width="100dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="10dp"
         android:background="@android:color/transparent"
         android:drawableTop="@drawable/favorite_button"
         android:textOn=""
@@ -272,12 +274,13 @@
 
     <ImageButton
         android:id="@+id/back_b"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:src="@drawable/ic_arrow_back"
         android:onClick="mainScreen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="10dp"
         android:contentDescription="@string/main_screen" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
