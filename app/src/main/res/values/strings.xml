@@ -70,7 +70,7 @@
 
 <!--    popup_detergent_reminder-->
     <string name="detergent_reminder">Detergent Reminder</string>
-    <string name="b_ready">Έτοιμο!</string>
+    <string name="b_ready">Ξεκίνα!</string>
     <string name="s_reminder">Μην ξεχάσετε!</string>
 
 </resources>
