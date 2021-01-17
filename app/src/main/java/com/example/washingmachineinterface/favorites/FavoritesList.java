@@ -76,7 +76,7 @@ public class FavoritesList extends AppCompatActivity {
         startActivity(last);
     }
 
-    public void showPopup(final FavoriteItem item){
+    public void showBeginPopup(final FavoriteItem item){
         if(item instanceof BeginnerWash){
             chooseProgram((BeginnerWash)item);
             dialog.setContentView(R.layout.popup_begin_wash_beginner);
@@ -131,6 +131,59 @@ public class FavoritesList extends AppCompatActivity {
             public void onClick(View v) {
                 dialog.dismiss();
                 toLastScreen();
+            }
+        });
+        dialog.show();
+    }
+
+    public void showDeletePopup(FavoriteItem item, final int position){
+        if(item instanceof BeginnerWash){
+            chooseProgram((BeginnerWash)item);
+            dialog.setContentView(R.layout.popup_delete_beginner);
+            dialog.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
+            TextView t_program = dialog.findViewById(R.id.program_choice);
+            TextView t_colors = dialog.findViewById(R.id.color_choice);
+            TextView t_dirt = dialog.findViewById(R.id.dirt_choice);
+            TextView t_allergy = dialog.findViewById(R.id.allergy_choice);
+
+            t_program.setText(program);
+            t_colors.setText(((BeginnerWash) item).getColor());
+            t_dirt.setText(((BeginnerWash) item).getDirt());
+            t_allergy.setText(((BeginnerWash) item).getAllergy());
+        }else{
+            chooseProgram((AdvancedWash)item);
+            dialog.setContentView(R.layout.popup_delete_advanced);
+            dialog.getWindow().getDecorView().setBackgroundResource(android.R.color.transparent);
+            TextView t_program = dialog.findViewById(R.id.program_choice);
+            TextView t_prewash = dialog.findViewById(R.id.prewash_choice);
+            TextView t_temperature = dialog.findViewById(R.id.temp_choice);
+            TextView t_dry = dialog.findViewById(R.id.dry_choice);
+            TextView t_rinse = dialog.findViewById(R.id.rinse_choice);
+
+            t_program.setText(program);
+            t_prewash.setText(prewash?"Ναι":"Όχι");
+            t_temperature.setText(temp);
+            t_dry.setText(dry);
+            t_rinse.setText(rinse?"Ναι":"Όχι");
+        }
+
+        Button yes;
+        Button no;
+
+        yes = dialog.findViewById(R.id.b_yes_stop);
+        no = dialog.findViewById(R.id.b_no_continue);
+
+        no.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                removeItem(position);
             }
         });
         dialog.show();

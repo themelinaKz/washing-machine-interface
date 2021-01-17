@@ -58,14 +58,14 @@ class FavoritesListAdapter extends RecyclerView.Adapter<FavoritesListAdapter.Fav
             @Override
             public void onClick(View view) {
                 //TODO delete favorite
-                context.removeItem(position);
+                context.showDeletePopup(item, position);
             }
         });
         holder.item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //TODO begin wash
-                context.showPopup(item);
+                context.showBeginPopup(item);
             }
         });
     }
