@@ -227,7 +227,7 @@ public class FavoritesList extends AppCompatActivity {
 
     private void chooseProgram(BeginnerWash item){
         program = item.getProgram();
-        prewash = item.isDirt();
+        prewash = item.getColor().equals(getResources().getString(R.string.s_white)) || item.isDirt();
         rinse = item.isDirt();
 
         if(item.getProgram().equals(getResources().getString(R.string.s_cotton_mix))){

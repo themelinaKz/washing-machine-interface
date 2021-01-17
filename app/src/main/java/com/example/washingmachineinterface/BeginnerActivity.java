@@ -22,7 +22,7 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
     RadioGroup fabric, color, dirt, allergy;
     RadioButton r_fabric, r_color, r_dirt, r_allergy;
     String s_fabric, s_color, s_dirt, s_allergy;
-    boolean is_dirt, is_allergy;
+    boolean is_dirt, is_allergy, is_prewash;
     String dry, temp;
 
     Dialog dialog; //popup
@@ -91,7 +91,7 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
         last.putExtra("program",s_fabric);
         last.putExtra("dry",dry);
         last.putExtra("temp", temp);
-        last.putExtra("prewash", is_dirt);
+        last.putExtra("prewash", is_prewash);
         last.putExtra("rinse", is_dirt);
         startActivity(last);
     }
@@ -176,7 +176,7 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
             temp = getResources().getString(R.string.s_40_celc);
         }
 
-
+        is_prewash = s_color.equals(getResources().getString(R.string.s_white)) || is_dirt;
     }
 
     @Override
