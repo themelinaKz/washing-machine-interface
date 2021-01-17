@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.washingmachineinterface.favorites.AdvancedWash;
 import com.example.washingmachineinterface.favorites.FavoriteItem;
 
-public class AdvancedActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class AdvancedActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
 
     RadioGroup fabric, temperature, prewash, dry, rinse;
     RadioButton r_fabric, r_temp, r_prewash, r_dry, r_rinse;
@@ -26,6 +26,8 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
 
     Dialog dialog;
     TextView t_program, t_prewash, t_temperature, t_dry, t_rinse;
+
+    ToggleButton favorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,13 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
         dry = findViewById(R.id.group_dry);
         rinse = findViewById(R.id.group_rinse);
 
-        ToggleButton favorite = findViewById(R.id.favorite_advanced);
+        fabric.setOnCheckedChangeListener(this);
+        temperature.setOnCheckedChangeListener(this);
+        prewash.setOnCheckedChangeListener(this);
+        dry.setOnCheckedChangeListener(this);
+        rinse.setOnCheckedChangeListener(this);
+
+        favorite = findViewById(R.id.favorite_advanced);
         favorite.setOnCheckedChangeListener(this);
     }
 
@@ -145,6 +153,11 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
         }
     }
 
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        favorite.setChecked(false);
+    }
+
     private void chooseProgram(){
         r_fabric = findViewById(fabric.getCheckedRadioButtonId());
         s_fabric = r_fabric.getText().toString();
@@ -163,4 +176,5 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
         s_rinse = r_rinse.getText().toString();
         is_rinse = s_rinse.equals(getResources().getString(R.string.s_yes));
     }
+
 }

@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.washingmachineinterface.favorites.BeginnerWash;
 import com.example.washingmachineinterface.favorites.FavoriteItem;
 
-public class BeginnerActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class BeginnerActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener, RadioGroup.OnCheckedChangeListener {
 
     RadioGroup fabric, color, dirt, allergy;
     RadioButton r_fabric, r_color, r_dirt, r_allergy;
@@ -27,6 +27,8 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
 
     Dialog dialog; //popup
     TextView t_program, t_colors, t_dirt, t_allergy; //dialog settings
+
+    ToggleButton favorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +42,12 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
         dirt = findViewById(R.id.group_dirt);
         allergy = findViewById(R.id.group_allergy);
 
-        ToggleButton favorite = findViewById(R.id.favorite_beginner);
+        fabric.setOnCheckedChangeListener(this);
+        color.setOnCheckedChangeListener(this);
+        dirt.setOnCheckedChangeListener(this);
+        allergy.setOnCheckedChangeListener(this);
+
+        favorite = findViewById(R.id.favorite_beginner);
         favorite.setOnCheckedChangeListener(this);
     }
 
@@ -198,5 +205,10 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
         }else{
             MainActivity.removeItem(item);
         }
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        favorite.setChecked(false);
     }
 }
