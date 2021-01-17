@@ -31,7 +31,7 @@
         android:layout_marginLeft="40dp"
         android:layout_marginEnd="40dp"
         android:gravity="center"
-        android:text="@string/s_start_washing"
+        android:text="@string/s_delete_item"
         android:textSize="24sp"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toTopOf="@+id/b_yes_stop"
