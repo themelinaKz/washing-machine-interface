@@ -28,20 +28,31 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:paddingBottom="80dp"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toStartOf="@+id/b_close"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/b_close"
+            android:scrollbars="vertical"
+            android:scrollIndicators="end"
+            android:scrollbarStyle="insideInset"
+            android:scrollbarSize="5dp"
+            tools:targetApi="m">
         <TextView
             android:id="@+id/help"
             android:layout_width="500dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:fontFamily="sans-serif-medium"
-            android:gravity="center_vertical"
-            android:paddingBottom="80dp"
-            android:textSize="15sp"
-            android:textColor="@android:color/black"
-            app:layout_constraintEnd_toStartOf="@+id/b_close"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b_close" />
+            android:textSize="25sp"
+            android:textColor="@android:color/black" />
+        </ScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
