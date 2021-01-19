@@ -34,6 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:paddingBottom="80dp"
+            android:fadeScrollbars="false"
+            android:scrollbarFadeDuration="0"
             android:gravity="center_vertical"
             app:layout_constraintEnd_toStartOf="@+id/b_close"
             app:layout_constraintHorizontal_bias="1.0"
@@ -49,7 +51,7 @@
             android:layout_width="500dp"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textColor="@android:color/black" />
         </ScrollView>
 
