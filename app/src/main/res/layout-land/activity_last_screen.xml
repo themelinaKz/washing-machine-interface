@@ -8,23 +8,6 @@
     android:gravity="center_vertical"
     tools:context=".LastScreen">
 
-<!--    <Switch-->
-<!--        android:id="@+id/theme_switch"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/theme_text"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="?attr/switch_text"-->
-<!--        android:textColor="?attr/textColor"-->
-<!--        android:gravity="start"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/theme_switch"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
     <!--All left part (Program and buttons)-->
     <LinearLayout
         android:layout_width="wrap_content"

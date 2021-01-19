@@ -12,18 +12,10 @@
         android:id="@+id/theme_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/s_dark_mode"
+        android:textColor="?attr/textColor"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/theme_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="?attr/switch_text"
-        android:textColor="?attr/textColor"
-        android:gravity="start"
-        app:layout_constraintStart_toEndOf="@+id/theme_switch"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/brand"
