@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -24,6 +25,7 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
     String s_fabric, s_temp, s_prewash, s_dry, s_rinse;
     boolean is_prewash, is_rinse;
 
+    Switch themeSwitch;
     Dialog dialog;
     TextView t_program, t_prewash, t_temperature, t_dry, t_rinse;
 
@@ -31,9 +33,25 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(MainActivity.isSetToNightMode()){
+            setTheme(R.style.DarkScreen);
+        }else{
+            setTheme(R.style.LightScreen);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advanced);
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+        themeSwitch = findViewById(R.id.theme_switch);
+        themeSwitch.setChecked(MainActivity.isSetToNightMode());
+        themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                MainActivity.setNightMode(checked);
+                restartActivity();
+            }
+        });
+
         dialog = new Dialog(this);
 
         fabric = findViewById(R.id.group_fabric);
@@ -124,6 +142,12 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
             }
         });
         dialog.show();
+    }
+
+    private void restartActivity(){
+        Intent it = new Intent(getApplicationContext(), AdvancedActivity.class);
+        startActivity(it);
+        finish();
     }
 
     @Override

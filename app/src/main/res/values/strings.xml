@@ -1,4 +1,9 @@
 <resources>
+    <string name="app_name">Washing Machine Interface</string>
+    <string name="brand">Whirlpool</string>
+    <string name="s_dark_mode">Σκοτεινή Λειτουργία</string>
+    <string name="s_light_mode">Φωτεινή Λειτουργία</string>
+
     <!--activity_main-->
     <string name="s_beginner">ΒΑΣΙΚΗ ΠΛΥΣΗ \n(για αρχάριους)</string>
     <string name="s_advanced">ΠΡΟΣΑΡΜΟΣΜΕΝΗ ΠΛΥΣΗ \n\t(για προχωρημένους)</string>
@@ -6,7 +11,6 @@
     <string name="s_main_help"><b>⦿</b> \tΑν δεν γνωρίζεις πώς να βάζεις πλυντήριο, πάτα την 1η επιλογή (για αρχάριους)\n<b>⦿</b> \tΔιαφορετικά, πάτα την 2η επιλογή (για προχωρημένους) \n<b>⦿</b> \tΑν θες να δεις τη λίστα με τις αγαπημένες σου πλύσεις, πάτα ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ</string>
 
     <!--activity_beginner_advanced-->
-    <string name="app_name">Washing Machine Interface</string>
     <string name="s_wool">\tΜάλλινα</string>
     <string name="s_delicate">\tΕυαίσθητα</string>
     <string name="s_synthetic">\tΣυνθετικά</string>

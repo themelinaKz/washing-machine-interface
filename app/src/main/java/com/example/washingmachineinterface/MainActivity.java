@@ -7,10 +7,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.washingmachineinterface.favorites.AdvancedWash;
 import com.example.washingmachineinterface.favorites.BeginnerWash;
@@ -27,6 +30,7 @@ import java.util.ArrayList;
 import java.util.StringTokenizer;
 
 public class MainActivity extends AppCompatActivity {
+    Switch themeSwitch;
     Dialog dialog; //for popup
     public static ArrayList<FavoriteItem> favorites = new ArrayList<>();
     private static MainActivity instance;
@@ -35,9 +39,25 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(isSetToNightMode()){
+            setTheme(R.style.DarkScreen);
+        }else{
+            setTheme(R.style.LightScreen);
+        }
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_main);
+
+        themeSwitch = findViewById(R.id.theme_switch);
+        themeSwitch.setChecked(isSetToNightMode());
+        themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                setNightMode(checked);
+                restartActivity();
+            }
+        });
+
         dialog = new Dialog(this);
         instance = this;
         if (onStart){
@@ -200,5 +220,23 @@ public class MainActivity extends AppCompatActivity {
             line_item = new AdvancedWash(program,prewash,temperature,rpm,rinse);
         }
         return line_item;
+    }
+
+    public static boolean isSetToNightMode(){
+        return AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES;
+    }
+
+    public static void setNightMode(boolean night){
+        if(night){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+    }
+
+    private void restartActivity(){
+        Intent it = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(it);
+//        finish();
     }
 }

@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@android:color/background_dark"
+    android:background="?attr/backgroundColor"
     android:gravity="center_horizontal"
     tools:context=".AdvancedActivity">
+
+    <Switch
+        android:id="@+id/theme_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/theme_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="?attr/switch_text"
+        android:textColor="?attr/textColor"
+        android:gravity="start"
+        app:layout_constraintStart_toEndOf="@+id/theme_switch"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/title_advanced"
@@ -14,7 +31,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/title_advanced"
-        android:textColor="@android:color/white"
+        android:textColor="?attr/textColor"
         android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/advanced_choices"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,7 +68,7 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="@string/radio_fabric"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/textColor"
                 android:textSize="20sp" />
 
             <RadioButton
@@ -114,7 +131,7 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="@string/radio_temp"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/textColor"
                 android:textSize="20sp" />
 
             <RadioButton
@@ -188,7 +205,7 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="@string/radio_prewash"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/textColor"
                 android:textSize="20sp" />
 
             <RadioButton
@@ -231,7 +248,7 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="@string/radio_dry"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/textColor"
                 android:textSize="20sp" />
 
             <RadioButton
@@ -327,7 +344,7 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="@string/radio_rinse"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/textColor"
                 android:textSize="20sp" />
 
             <RadioButton
@@ -358,7 +375,7 @@
         android:layout_width="92dp"
         android:layout_height="52dp"
         android:text="@string/s_help"
-        android:textColor="@android:color/white"
+        android:textColor="?attr/textColor"
         android:textStyle="bold"
         android:background="@drawable/help"
         android:onClick="toAdvancedHelp"

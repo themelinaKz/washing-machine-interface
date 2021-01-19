@@ -12,8 +12,10 @@ import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.washingmachineinterface.favorites.FavoritesList;
@@ -32,6 +34,7 @@ public class LastScreen extends AppCompatActivity {
     ImageButton b_start_pause;
     ImageButton b_stop;
     CountDownTimer timer;
+//    Switch themeSwitch;
     Dialog dialog;    // for popup
     boolean isWorking = true;
 
@@ -52,9 +55,25 @@ public class LastScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(MainActivity.isSetToNightMode()){
+            setTheme(R.style.DarkScreen);
+        }else{
+            setTheme(R.style.LightScreen);
+        }
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_last_screen);
+
+//        themeSwitch = findViewById(R.id.theme_switch);
+//        themeSwitch.setChecked(MainActivity.isSetToNightMode());
+//        themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+//                MainActivity.setNightMode(checked);
+//                restartActivity();
+//            }
+//        });
+
         dialog = new Dialog(this);
 
         //Get washing details

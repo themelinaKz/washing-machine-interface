@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -25,6 +26,7 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
     boolean is_dirt, is_allergy, is_prewash;
     String dry, temp;
 
+    Switch themeSwitch;
     Dialog dialog; //popup
     TextView t_program, t_colors, t_dirt, t_allergy; //dialog settings
 
@@ -32,9 +34,25 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(MainActivity.isSetToNightMode()){
+            setTheme(R.style.DarkScreen);
+        }else{
+            setTheme(R.style.LightScreen);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beginner);
 //        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+
+        themeSwitch = findViewById(R.id.theme_switch);
+        themeSwitch.setChecked(MainActivity.isSetToNightMode());
+        themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                MainActivity.setNightMode(checked);
+                restartActivity();
+            }
+        });
+
         dialog = new Dialog(this);
 
         fabric = findViewById(R.id.group_fabric);
@@ -184,6 +202,12 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
         }
 
         is_prewash = s_color.equals(getResources().getString(R.string.s_white)) || is_dirt;
+    }
+
+    private void restartActivity(){
+        Intent it = new Intent(getApplicationContext(), BeginnerActivity.class);
+        startActivity(it);
+        finish();
     }
 
     @Override

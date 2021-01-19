@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AppMode">
+        <attr name="backgroundColor" format="color"/>
+        <attr name="textColor" format="color"/>
+        <attr name="checkedColor" format="color"/>
+        <attr name="uncheckedColor" format="color"/>
+        <attr name="delete_btn" format="reference"/>
+        <attr name="switch_text" format="reference"/>
+    </declare-styleable>
+</resources>

@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@android:color/background_dark"
+    android:background="?attr/backgroundColor"
     android:gravity="center_vertical"
     tools:context=".LastScreen">
+
+<!--    <Switch-->
+<!--        android:id="@+id/theme_switch"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/theme_text"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="?attr/switch_text"-->
+<!--        android:textColor="?attr/textColor"-->
+<!--        android:gravity="start"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/theme_switch"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <!--All left part (Program and buttons)-->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/background_dark"
         android:gravity="center"
         android:orientation="vertical"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout"
         app:layout_constraintHorizontal_bias="0.125"
@@ -28,7 +45,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/s_program"
-            android:textColor="@android:color/darker_gray"
+            android:textColor="?attr/textColor"
             android:textSize="20sp" />
 
         <!--Program's Name Text-->
@@ -38,7 +55,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:textColor="@android:color/background_light"
+            android:textColor="?attr/textColor"
             android:textSize="22sp"
             android:textStyle="bold" />
 
@@ -50,7 +67,7 @@
             android:fontFamily="monospace"
             android:gravity="start"
             android:text="@string/s_40_celc"
-            android:textColor="@android:color/background_light"
+            android:textColor="?attr/textColor"
             android:textSize="40sp" />
 
         <LinearLayout
@@ -88,8 +105,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/s_functioning"
+        android:textColor="?attr/textColor"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -102,6 +119,7 @@
         android:layout_marginRight="44dp"
         android:gravity="center"
         android:orientation="vertical"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -113,7 +131,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/s_remaining_time"
-            android:textColor="@android:color/background_light"
+            android:textColor="?attr/textColor"
             android:textSize="20sp" />
 
         <!--Timer-->
@@ -123,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif"
-            android:textColor="@android:color/background_light"
+            android:textColor="?attr/textColor"
             android:textSize="50sp" />
 
         <!--Stage and Part completed-->
@@ -141,7 +159,7 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center_horizontal"
                 android:text="@string/radio_prewash"
-                android:textColor="@android:color/background_light"
+                android:textColor="?attr/textColor"
                 android:textSize="22sp" />
 
             <!--Part completed-->
@@ -152,7 +170,7 @@
                 android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="\t1/4"
-                android:textColor="@android:color/background_light"
+                android:textColor="?attr/textColor"
                 android:textSize="22sp" />
         </LinearLayout>
 

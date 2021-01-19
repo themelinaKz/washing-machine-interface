@@ -4,9 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark"
+    android:background="?attr/backgroundColor"
     android:gravity="center_horizontal"
     tools:context=".MainActivity">
+
+    <Switch
+        android:id="@+id/theme_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/theme_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="?attr/switch_text"
+        android:textColor="?attr/textColor"
+        android:gravity="start"
+        app:layout_constraintStart_toEndOf="@+id/theme_switch"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/brand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/brand"
+        android:textColor="?attr/textColor"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"/>
 
     <Button
         android:id="@+id/main_help"
@@ -14,7 +45,7 @@
         android:layout_height="52dp"
         android:background="@drawable/help"
         android:text="@string/s_help"
-        android:textColor="@android:color/white"
+        android:textColor="?attr/textColor"
         android:textStyle="bold"
         android:onClick="toMainHelp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,9 +55,10 @@
         android:id="@+id/adv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/washer_lever"
+        android:src="@drawable/washer_lever"
         android:onClick="toAdvancedActivity"
         android:text="@string/title_advanced"
+        android:background="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/beg"
@@ -39,7 +71,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/s_beginner"
-        android:textColor="@android:color/background_light"
+        android:textColor="?attr/textColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/beg"
         app:layout_constraintStart_toStartOf="@+id/beg"
@@ -64,7 +96,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/s_advanced"
-        android:textColor="@android:color/background_light"
+        android:textColor="?attr/textColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/adv"
         app:layout_constraintHorizontal_bias="0.55"

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,13 +32,29 @@ public class FavoritesList extends AppCompatActivity {
     private String program, dry, temp;
     boolean prewash, rinse;
 
+    Switch themeSwitch;
     Dialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(MainActivity.isSetToNightMode()){
+            setTheme(R.style.DarkScreen);
+        }else{
+            setTheme(R.style.LightScreen);
+        }
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_favorites);
+
+        themeSwitch = findViewById(R.id.theme_switch);
+        themeSwitch.setChecked(MainActivity.isSetToNightMode());
+        themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                MainActivity.setNightMode(checked);
+                restartActivity();
+            }
+        });
 
         getList();
         setUpRecyclerView();
@@ -289,5 +307,11 @@ public class FavoritesList extends AppCompatActivity {
         temp = item.getTemperature();
         prewash = item.isPrewash();
         rinse = item.isRinse();
+    }
+
+    private void restartActivity(){
+        Intent it = new Intent(getApplicationContext(), FavoritesList.class);
+        startActivity(it);
+        finish();
     }
 }
