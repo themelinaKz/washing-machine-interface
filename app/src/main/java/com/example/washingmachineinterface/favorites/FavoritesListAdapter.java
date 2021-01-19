@@ -35,11 +35,15 @@ class FavoritesListAdapter extends RecyclerView.Adapter<FavoritesListAdapter.Fav
     @Override
     public void onBindViewHolder(@NonNull FavoritesViewHolder holder, final int position) {
         final FavoriteItem item = items.get(position);
-        holder.program.setText(item.getProgram().toString());
+        holder.program.setText(item.getProgram());
         if(item instanceof BeginnerWash){
-            holder.colors.setText(((BeginnerWash) item).getColor().toString());
+            holder.colors.setText(((BeginnerWash) item).getColor());
             holder.dirt.setText(((BeginnerWash) item).getDirt());
             holder.allergy.setText(((BeginnerWash) item).getAllergy());
+
+            holder.colors_cont.setVisibility(View.VISIBLE);
+            holder.dirt_cont.setVisibility(View.VISIBLE);
+            holder.allergy_cont.setVisibility(View.VISIBLE);
 
             holder.prewash_cont.setVisibility(View.GONE);
             holder.temperature_cont.setVisibility(View.GONE);
@@ -50,6 +54,11 @@ class FavoritesListAdapter extends RecyclerView.Adapter<FavoritesListAdapter.Fav
             holder.temperature.setText(((AdvancedWash) item).getTemperature());
             holder.dry.setText(((AdvancedWash) item).getRpm());
             holder.rinse.setText(((AdvancedWash) item).getRinse());
+
+            holder.prewash_cont.setVisibility(View.VISIBLE);
+            holder.temperature_cont.setVisibility(View.VISIBLE);
+            holder.dry_cont.setVisibility(View.VISIBLE);
+            holder.rinse_cont.setVisibility(View.VISIBLE);
 
             holder.colors_cont.setVisibility(View.GONE);
             holder.dirt_cont.setVisibility(View.GONE);
