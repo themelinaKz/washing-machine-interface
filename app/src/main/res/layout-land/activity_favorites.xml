@@ -77,4 +77,12 @@
         android:layout_marginBottom="10dp"
         android:contentDescription="@string/main_screen" />
 
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:src="@drawable/clothes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

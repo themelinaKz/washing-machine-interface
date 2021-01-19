@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="70dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_marginBottom="5dp"
     android:id="@+id/item_layout"
@@ -14,214 +15,250 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_favorite_filled"
-        android:contentDescription="@string/favorite"/>
+        android:contentDescription="@string/favorite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-    <RelativeLayout
-        android:id="@+id/prewash_group"
+    <LinearLayout
+        android:id="@+id/info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <TextView
-            android:id="@+id/prewash_title"
+        <RelativeLayout
+            android:id="@+id/prewash_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/radio_prewash"
-            android:textColor="?attr/textColor" />
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
-        <TextView
-            android:id="@+id/prewash_choice"
+            <TextView
+                android:id="@+id/prewash_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/radio_prewash"
+                android:textColor="?attr/textColor" />
+
+            <TextView
+                android:id="@+id/prewash_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/prewash_title"
+                android:layout_centerHorizontal="true"
+                android:text="@string/s_yes"
+                android:textColor="?attr/textColor" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/program_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/prewash_title"
-            android:layout_centerHorizontal="true"
-            android:text="@string/s_yes"
-            android:textColor="?attr/textColor" />
-    </RelativeLayout>
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
-    <RelativeLayout
-        android:id="@+id/program_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp">
+            <TextView
+                android:id="@+id/program_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/radio_fabric"
+                android:textColor="?attr/textColor" />
 
-        <TextView
-            android:id="@+id/program_title"
+            <TextView
+                android:id="@+id/program_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/program_title"
+                android:layout_centerHorizontal="true"
+                android:text="@string/s_wool"
+                android:textColor="?attr/textColor"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/temp_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/radio_fabric"
-            android:textColor="?attr/textColor" />
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
+            <TextView
+                android:id="@+id/temp_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/radio_temp"
+                android:textColor="?attr/textColor"/>
 
-        <TextView
-            android:id="@+id/program_choice"
+            <TextView
+                android:id="@+id/temp_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/temp_title"
+                android:text="@string/s_30_celc"
+                android:textColor="?attr/textColor"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dry_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/program_title"
-            android:layout_centerHorizontal="true"
-            android:text="@string/s_wool"
-            android:textColor="?attr/textColor"/>
-    </RelativeLayout>
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
+            <TextView
+                android:id="@+id/dry_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/radio_dry"
+                android:textColor="?attr/textColor" />
 
-    <RelativeLayout
-        android:id="@+id/temp_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp">
-        <TextView
-            android:id="@+id/temp_title"
+            <TextView
+                android:id="@+id/dry_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/dry_title"
+                android:text="@string/s_600rpm"
+                android:textColor="?attr/textColor"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rinse_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/radio_temp"
-            android:textColor="?attr/textColor"/>
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
+            <TextView
+                android:id="@+id/rinse_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/radio_rinse"
+                android:textColor="?attr/textColor" />
 
-        <TextView
-            android:id="@+id/temp_choice"
+            <TextView
+                android:id="@+id/rinse_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/rinse_title"
+                android:text="@string/s_yes"
+                android:textColor="?attr/textColor"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/color_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/temp_title"
-            android:text="@string/s_30_celc"
-            android:textColor="?attr/textColor"/>
-    </RelativeLayout>
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
-    <RelativeLayout
-        android:id="@+id/dry_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp">
-        <TextView
-            android:id="@+id/dry_title"
+            <TextView
+                android:id="@+id/color_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/radio_color"
+                android:textColor="?attr/textColor" />
+
+            <TextView
+                android:id="@+id/color_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/color_title"
+                android:layout_centerHorizontal="true"
+                android:text="@string/s_dark"
+                android:textColor="?attr/textColor" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/dirt_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/radio_dry"
-            android:textColor="?attr/textColor" />
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
-        <TextView
-            android:id="@+id/dry_choice"
+            <TextView
+                android:id="@+id/dirt_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/radio_dirt"
+                android:textColor="?attr/textColor"/>
+
+            <TextView
+                android:id="@+id/dirt_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dirt_title"
+                android:layout_centerHorizontal="true"
+                android:text="@string/s_yes"
+                android:textColor="?attr/textColor"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/allergy_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/dry_title"
-            android:text="@string/s_600rpm"
-            android:textColor="?attr/textColor"/>
-    </RelativeLayout>
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp">
 
-    <RelativeLayout
-        android:id="@+id/rinse_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp">
-        <TextView
-            android:id="@+id/rinse_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/radio_rinse"
-            android:textColor="?attr/textColor" />
+            <TextView
+                android:id="@+id/allergy_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/radio_allergy"
+                android:textColor="?attr/textColor" />
 
-        <TextView
-            android:id="@+id/rinse_choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/rinse_title"
-            android:text="@string/s_yes"
-            android:textColor="?attr/textColor"/>
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/allergy_choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/allergy_title"
+                android:layout_centerHorizontal="true"
+                android:text="@string/s_yes"
+                android:textColor="?attr/textColor"/>
+        </RelativeLayout>
 
-    <RelativeLayout
-        android:id="@+id/color_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp">
+    </LinearLayout>
 
-        <TextView
-            android:id="@+id/color_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/radio_color"
-            android:textColor="?attr/textColor" />
-
-        <TextView
-            android:id="@+id/color_choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/color_title"
-            android:layout_centerHorizontal="true"
-            android:text="@string/s_dark"
-            android:textColor="?attr/textColor" />
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/dirt_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp">
-
-        <TextView
-            android:id="@+id/dirt_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/radio_dirt"
-            android:textColor="?attr/textColor"/>
-
-        <TextView
-            android:id="@+id/dirt_choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/dirt_title"
-            android:layout_centerHorizontal="true"
-            android:text="@string/s_yes"
-            android:textColor="?attr/textColor"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/allergy_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp">
-
-        <TextView
-            android:id="@+id/allergy_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="@string/radio_allergy"
-            android:textColor="?attr/textColor" />
-
-        <TextView
-            android:id="@+id/allergy_choice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/allergy_title"
-            android:layout_centerHorizontal="true"
-            android:text="@string/s_yes"
-            android:textColor="?attr/textColor"/>
-    </RelativeLayout>
+    <View
+        android:id="@+id/vertical_line"
+        android:layout_width="2dp"
+        android:layout_height="70dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:background="?attr/uncheckedColor"
+        app:layout_constraintEnd_toStartOf="@id/delete_btn"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageButton
         android:id="@+id/delete_btn"
@@ -229,9 +266,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
         android:layout_gravity="center"
         android:contentDescription="@string/delete"
         android:background="@android:color/transparent"
-        android:src="?attr/delete_btn"/>
+        android:src="?attr/delete_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

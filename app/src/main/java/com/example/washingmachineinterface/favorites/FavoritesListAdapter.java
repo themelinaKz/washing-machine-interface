@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.washingmachineinterface.R;
@@ -78,7 +79,7 @@ class FavoritesListAdapter extends RecyclerView.Adapter<FavoritesListAdapter.Fav
 
     public static class FavoritesViewHolder extends RecyclerView.ViewHolder{
 
-        public LinearLayout item;
+        public ConstraintLayout item;
         public TextView program;
         public TextView prewash, temperature, dry, rinse; //advanced settings
         public TextView colors, dirt, allergy; //beginner settings
