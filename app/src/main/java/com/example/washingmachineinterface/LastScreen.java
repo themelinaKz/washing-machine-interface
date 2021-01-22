@@ -38,6 +38,7 @@ public class LastScreen extends AppCompatActivity {
     Dialog dialog;    // for popup
     boolean isWorking = true;
 
+    // TODO reduce time for the presentation
     // milliseconds per stage
     final long PREWASH = 25*60*1000;
     final long MAIN = 30*60*1000;
