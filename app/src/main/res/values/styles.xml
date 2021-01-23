@@ -3,10 +3,8 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:windowAnimationStyle">@style/WindowAnimation</item>
     </style>
 
@@ -16,21 +14,25 @@
     </style>
 
     <style name="LightScreen" parent="AppTheme">
+        <item name="colorPrimaryDark">@color/grey</item>
         <item name="backgroundColor">@android:color/white</item>
         <item name="textColor">@android:color/black</item>
         <item name="checkedColor">@android:color/black</item>
         <item name="uncheckedColor">@color/dark_grey</item>
         <item name="delete_btn">@drawable/ic_delete</item>
         <item name="switch_text">@string/s_dark_mode</item>
+        <item name="help_button">@drawable/help_whitemode</item>
     </style>
 
     <style name="DarkScreen" parent="AppTheme">
+        <item name="colorPrimaryDark">@color/dark_grey</item>
         <item name="backgroundColor">@android:color/background_dark</item>
         <item name="textColor">@android:color/white</item>
         <item name="checkedColor">@android:color/white</item>
         <item name="uncheckedColor">@android:color/darker_gray</item>
         <item name="delete_btn">@drawable/ic_delete_white</item>
         <item name="switch_text">@string/s_light_mode</item>
+        <item name="help_button">@drawable/help</item>
     </style>
 
     <style name="WindowAnimation">

@@ -7,5 +7,6 @@
         <attr name="uncheckedColor" format="color"/>
         <attr name="delete_btn" format="reference"/>
         <attr name="switch_text" format="reference"/>
+        <attr name="help_button" format="reference"/>
     </declare-styleable>
 </resources>
