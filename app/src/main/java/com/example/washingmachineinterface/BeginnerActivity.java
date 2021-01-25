@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,7 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
     TextView t_program, t_colors, t_dirt, t_allergy; //dialog settings
 
     ToggleButton favorite;
+    boolean activeListener = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -210,8 +212,11 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
         finish();
     }
 
+    //Listener for Heart CheckedChanged
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+        if(!activeListener) return;
+
         r_fabric = findViewById(fabric.getCheckedRadioButtonId());
         s_fabric = r_fabric.getText().toString();
         r_color = findViewById(color.getCheckedRadioButtonId());
@@ -226,13 +231,34 @@ public class BeginnerActivity extends AppCompatActivity implements CompoundButto
         FavoriteItem item = new BeginnerWash(s_fabric, s_color, is_dirt, is_allergy);
         if(checked){
             MainActivity.addItem(item);
+            Toast.makeText(this, getResources().getString(R.string.add_item),Toast.LENGTH_SHORT).show();
         }else{
-            MainActivity.removeItem(item);
+           MainActivity.removeItem(item);
+           Toast.makeText(this, getResources().getString(R.string.remove_item),Toast.LENGTH_SHORT).show();
         }
     }
 
+    //Listener for RadioButton CheckedChanged
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        activeListener = false;
         favorite.setChecked(false);
+
+        r_fabric = findViewById(fabric.getCheckedRadioButtonId());
+        s_fabric = r_fabric.getText().toString();
+        r_color = findViewById(color.getCheckedRadioButtonId());
+        s_color = r_color.getText().toString();
+        r_dirt = findViewById(dirt.getCheckedRadioButtonId());
+        s_dirt = r_dirt.getText().toString();
+        is_dirt = s_dirt.equals(getResources().getString(R.string.s_alot));
+        r_allergy = findViewById(allergy.getCheckedRadioButtonId());
+        s_allergy = r_allergy.getText().toString();
+        is_allergy = s_allergy.equals(getResources().getString(R.string.s_yes));
+
+        FavoriteItem item = new BeginnerWash(s_fabric, s_color, is_dirt, is_allergy);
+        if(MainActivity.favorites.contains(item)){
+            favorite.setChecked(true);
+        }
+        activeListener = true;
     }
 }

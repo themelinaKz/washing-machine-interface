@@ -78,4 +78,8 @@
     <string name="b_ready">Ξεκίνα!</string>
     <string name="s_reminder">Μην ξεχάσετε!</string>
 
+<!--    Toast messages-->
+    <string name="add_item">Οι ρυθμίσεις αποθηκεύτηκαν στη Λίστα Αγαπημένων</string>
+    <string name="remove_item">Οι ρυθμίσεις αφαιρέθηκαν από τη Λίστα Αγαπημένων</string>
+
 </resources>

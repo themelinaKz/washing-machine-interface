@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
     TextView t_program, t_prewash, t_temperature, t_dry, t_rinse;
 
     ToggleButton favorite;
+    boolean activeListener = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,8 +152,11 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
         finish();
     }
 
+    //Listener for Heart CheckedChanged
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+        if(!activeListener) return;
+
         r_fabric = findViewById(fabric.getCheckedRadioButtonId());
         s_fabric = r_fabric.getText().toString();
 
@@ -172,14 +177,37 @@ public class AdvancedActivity extends AppCompatActivity implements CompoundButto
         FavoriteItem item = new AdvancedWash(s_fabric, is_prewash, s_temp, s_dry, is_rinse);
         if(checked){
             MainActivity.addItem(item);
+            Toast.makeText(this, getResources().getString(R.string.add_item),Toast.LENGTH_SHORT).show();
         }else{
             MainActivity.removeItem(item);
+            Toast.makeText(this, getResources().getString(R.string.remove_item),Toast.LENGTH_SHORT).show();
         }
     }
 
+    //Listener for RadioButton CheckedChanged
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int i) {
+        activeListener = false;
         favorite.setChecked(false);
+
+        r_fabric = findViewById(fabric.getCheckedRadioButtonId());
+        s_fabric = r_fabric.getText().toString();
+        r_temp = findViewById(temperature.getCheckedRadioButtonId());
+        s_temp = r_temp.getText().toString();
+        r_prewash = findViewById(prewash.getCheckedRadioButtonId());
+        s_prewash = r_prewash.getText().toString();
+        is_prewash = s_prewash.equals(getResources().getString(R.string.s_yes));
+        r_dry = findViewById(dry.getCheckedRadioButtonId());
+        s_dry = r_dry.getText().toString();
+        r_rinse = findViewById(rinse.getCheckedRadioButtonId());
+        s_rinse = r_rinse.getText().toString();
+        is_rinse = s_rinse.equals(getResources().getString(R.string.s_yes));
+
+        FavoriteItem item = new AdvancedWash(s_fabric, is_prewash, s_temp, s_dry, is_rinse);
+        if(MainActivity.favorites.contains(item)){
+            favorite.setChecked(true);
+        }
+        activeListener = true;
     }
 
     private void chooseProgram(){
