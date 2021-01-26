@@ -3,7 +3,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/blue</item>
         <item name="android:textSize">14sp</item>
         <item name="android:windowAnimationStyle">@style/WindowAnimation</item>
     </style>

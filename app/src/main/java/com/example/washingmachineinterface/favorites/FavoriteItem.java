@@ -1,18 +1,6 @@
 package com.example.washingmachineinterface.favorites;
 
 public class FavoriteItem {
-    public enum Program{
-        Cotton,
-        Synthetic,
-        Delicate,
-        Wool
-    }
-    public enum Color{
-        Light,
-        Dark,
-        Colorful
-    }
-
     String program;
 
     public FavoriteItem(String program){

@@ -55,7 +55,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/beg"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.411" />
+        app:layout_constraintVertical_bias="0.411"
+        android:contentDescription="@string/title_advanced"/>
 
     <TextView
         android:id="@+id/txv_beginner"
@@ -81,7 +82,8 @@
         app:layout_constraintEnd_toStartOf="@+id/adv"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.425" />
+        app:layout_constraintVertical_bias="0.425"
+        android:contentDescription="@string/title_beginner"/>
 
     <TextView
         android:id="@+id/txv_advanced"
@@ -103,7 +105,7 @@
         android:layout_height="wrap_content"
         android:drawableBottom="@drawable/ic_favorite_filled"
         android:onClick="toList"
-        android:text="ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ"
+        android:text="@string/title_favorites_list"
         android:textColor="@android:color/black"
         android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"

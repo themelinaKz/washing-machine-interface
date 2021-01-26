@@ -9,6 +9,7 @@
     <string name="s_advanced">ΠΡΟΣΑΡΜΟΣΜΕΝΗ ΠΛΥΣΗ \n\t(για προχωρημένους)</string>
     <string name="s_help">ΒΟΗΘΕΙΑ</string>
     <string name="s_main_help"><b>⦿</b> \tΑν δεν γνωρίζεις πώς να βάζεις πλυντήριο, πάτα την 1η επιλογή (για αρχάριους). Η εφαρμογή διαλέγει τα κατάλληλα χαρακτηριστικά για την πλύση σου βάσει των επιλογών σου. Άσε τις δύσκολες αποφάσεις στην εφαρμογή! \n<b>⦿</b> \tΔιαφορετικά, πάτα την 2η επιλογή (για προχωρημένους). Η επιλογή αυτή εμφανίζει όλες τις σύνθετες επιλογές (πχ θερμοκρασία, στροφές) \n<b>⦿</b> \tΑν θες να δεις τη λίστα με τις αγαπημένες σου πλύσεις, πάτα ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ</string>
+    <string name="title_favorites_list">ΛΙΣΤΑ ΑΓΑΠΗΜΕΝΩΝ</string>
 
     <!--activity_beginner_advanced-->
     <string name="s_wool">\tΜάλλινα</string>
@@ -57,6 +58,10 @@
     <string name="s_test_program">ΠΡΟΓΡ ΤΕΣΤ</string>
     <string name="s_remaining_time">Συνολικός Χρόνος που απομένει</string>
     <string name="s_main_washing">Κύρια πλύση</string>
+    <string name="s_pause">ΠΑΥΣΗ</string>
+    <string name="s_start">ΕΚΚΙΝΗΣΗ</string>
+    <string name="s_stop">ΔΙΑΚΟΠΗ</string>
+    <string name="graphic_washing_machine">Γραφικό πλυντηρίου</string>
 
     <!--popup_last_screen-->
     <string name="s_stop_washing">Θέλετε να σταματήσετε την πλύση;</string>
@@ -72,6 +77,7 @@
     <string name="s_start_washing">Θέλετε να ξεκινήσετε την πλύση;</string>
     <string name="s_favorites_help"><b>⦿</b> \tΕδώ είναι η λίστα με τις αγαπημένες σου πλύσεις! Κάθε πλύση αναγράφει τις επιλογές που έχεις κάνει\n<b>⦿</b> \tΑν θες να εκτελέσεις κάποια πλύση απλώς πάτα πάνω της\n<b>⦿</b> \tΑν θες να διαγράψεις κάποια πλύση, πάτα τον κάδο\n<b>⦿</b> \tΕίτε θελήσεις να εκτελέσεις μία πλύση, είτε να τη διαγράψεις, σου ζητείται να επιβεβαιώσεις την επιλογή σου, οπότε μην ανησυχείς αν πατήσεις κάτι καταλάθος!\n<b>⦿</b> \tΑν θες να πας στην προηγούμενη οθόνη πάτα το βελάκι κάτω αριστερά</string>
     <string name="s_delete_item">Θέλετε να διαγράψετε το αγαπημένο;</string>
+    <string name="graphic_laundry">Γραφικό ρούχων</string>
 
 <!--    popup_detergent_reminder-->
     <string name="detergent_reminder">Detergent Reminder</string>

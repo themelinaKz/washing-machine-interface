@@ -59,23 +59,50 @@
             android:orientation="horizontal">
 
             <!--Start or Pause Button-->
-            <ImageButton
-                android:id="@+id/b_start_pause"
-                android:layout_width="63dp"
-                android:layout_height="57dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:background="@drawable/b_pause" />
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/b_start_pause"
+                    android:layout_width="63dp"
+                    android:layout_height="57dp"
+                    android:background="@drawable/b_pause"
+                    android:contentDescription="@string/s_pause"/>
+                <TextView
+                    android:id="@+id/txt_start_pause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/s_pause"
+                    android:textColor="?attr/textColor"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
 
             <!--Stop Button-->
-            <ImageButton
-                android:id="@+id/b_stop"
-                android:layout_width="57dp"
-                android:layout_height="57dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:layout_marginStart="40dp"
                 android:layout_marginLeft="80dp"
-                android:layout_marginTop="12dp"
-                android:background="@drawable/b_stop"
-                android:onClick="showPopup" />
+                android:orientation="vertical">
+                <ImageButton
+                    android:id="@+id/b_stop"
+                    android:layout_width="57dp"
+                    android:layout_height="57dp"
+                    android:background="@drawable/b_stop"
+                    android:onClick="showPopup"
+                    android:contentDescription="@string/s_stop"/>
+                <TextView
+                    android:id="@+id/txt_stop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/s_stop"
+                    android:textColor="?attr/textColor"
+                    android:layout_gravity="center"
+                    />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 
@@ -152,7 +179,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:gravity="center"
-                android:text="\t1/4"
                 android:textColor="?attr/textColor"
                 android:textSize="22sp" />
         </LinearLayout>
@@ -166,6 +192,7 @@
         android:src="@drawable/laundry"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/graphic_washing_machine"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

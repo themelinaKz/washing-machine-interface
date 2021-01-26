@@ -31,6 +31,7 @@ public class LastScreen extends AppCompatActivity {
     TextView txv_timer;
     TextView txv_temperature;
     TextView txv_program, txv_stage, txv_stagePart;
+    TextView txt_start_pause;
     ImageButton b_start_pause;
     ImageButton b_stop;
     CountDownTimer timer;
@@ -96,6 +97,7 @@ public class LastScreen extends AppCompatActivity {
         time_in_mills += (rinse ? RINSE_DRY : 0);
         initialTime = time_in_mills;
 
+        txt_start_pause = findViewById(R.id.txt_start_pause);
         b_start_pause = findViewById(R.id.b_start_pause);
         b_stop = findViewById(R.id.b_stop);
         txv_function = findViewById(R.id.title_function);
@@ -115,12 +117,14 @@ public class LastScreen extends AppCompatActivity {
             public void onClick(View v) {
                 if (isWorking) {
                     b_start_pause.setBackgroundResource(R.drawable.b_play);
+                    txt_start_pause.setText(R.string.s_start);
                     txv_function.setText(R.string.s_on_pause);
                     stopTimer();
                     isWorking = false;
                 }
                 else {
                     b_start_pause.setBackgroundResource(R.drawable.b_pause);
+                    txt_start_pause.setText(R.string.s_pause);
                     txv_function.setText(R.string.s_functioning);
                     startTimer();
                     isWorking = true;
@@ -177,6 +181,7 @@ public class LastScreen extends AppCompatActivity {
     public void showPopup(View v){
         stopTimer();
         b_start_pause.setBackgroundResource(R.drawable.b_play);
+        txt_start_pause.setText(R.string.s_start);
         txv_function.setText(R.string.s_on_pause);
 
         TextView text;
@@ -193,6 +198,7 @@ public class LastScreen extends AppCompatActivity {
             public void onClick(View v) {
                 startTimer();
                 b_start_pause.setBackgroundResource(R.drawable.b_pause);
+                txt_start_pause.setText(R.string.s_pause);
                 txv_function.setText(R.string.s_functioning);
                 isWorking = true;
                 dialog.dismiss();

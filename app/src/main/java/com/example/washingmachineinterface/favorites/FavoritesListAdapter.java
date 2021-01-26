@@ -4,7 +4,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -67,14 +66,12 @@ class FavoritesListAdapter extends RecyclerView.Adapter<FavoritesListAdapter.Fav
         holder.delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO delete favorite
                 context.showDeletePopup(item, position);
             }
         });
         holder.item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO begin wash
                 context.showBeginPopup(item);
             }
         });

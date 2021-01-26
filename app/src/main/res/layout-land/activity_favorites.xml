@@ -84,6 +84,7 @@
         android:layout_height="100dp"
         android:src="@drawable/clothes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="@string/graphic_laundry"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
