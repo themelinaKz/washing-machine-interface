@@ -67,12 +67,14 @@
         android:textSize="20sp"
         android:visibility="gone"/>
 
-    <ImageButton
+    <Button
         android:id="@+id/back_b"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:src="@drawable/ic_arrow_back"
+        android:drawableStart="@drawable/ic_arrow_back"
+        android:drawableLeft="@drawable/ic_arrow_back"
         android:onClick="mainScreen"
+        android:text="@string/s_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="10dp"
