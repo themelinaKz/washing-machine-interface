@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:gravity="center_horizontal"
-    android:background="?attr/backgroundColor"
+    android:background="?attr/background"
     tools:context=".BeginnerActivity">
 
     <Switch
