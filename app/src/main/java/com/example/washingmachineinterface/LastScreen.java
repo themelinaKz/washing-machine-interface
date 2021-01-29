@@ -1,59 +1,40 @@
 package com.example.washingmachineinterface;
-import androidx.activity.OnBackPressedCallback;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.washingmachineinterface.favorites.FavoritesList;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import androidx.activity.OnBackPressedCallback;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class LastScreen extends AppCompatActivity {
-    String program, temp, dry;
+    String program, temp, dry, stages;
     boolean prewash, rinse;
 
-    TextView txv_function;
-    TextView txv_timer;
-    TextView txv_temperature;
-    TextView txv_program, txv_stage, txv_stagePart;
-    TextView txt_start_pause;
-    ImageButton b_start_pause;
-    ImageButton b_stop;
+    TextView txv_function, txv_timer, txv_temperature, txv_program, txv_stage, txv_stagePart, txt_start_pause;
+    ImageButton b_start_pause, b_stop;
     CountDownTimer timer;
-//    Switch themeSwitch;
     Dialog dialog;    // for popup
     boolean isWorking = true;
 
-    // TODO reduce time for the presentation
-    // milliseconds per stage
-    final long PREWASH = 25*60*1000;
-    final long MAIN = 30*60*1000;
-    final long RINSE_DRY = 15*60*1000;
-
-    /* time_in_mills holds the time shown in the activity
-       1 sec = 1000 milliseconds
-       1 min = 60 seconds = 60 * 1000 mills (60000)
-       1 hour = 60 mins = 60 * 60000 mills (3600000)*/
+    // milliseconds per stage (set to 1 minute for presentation)
+    final long PREWASH = 60*1000;
+    final long MAIN = 60*1000;
+    final long RINSE_DRY = 60*1000;
 
     // main washing and dry stages are standard
     long time_in_mills = MAIN + RINSE_DRY;
     long initialTime;
-    String stages;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,16 +46,6 @@ public class LastScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
         setContentView(R.layout.activity_last_screen);
-
-//        themeSwitch = findViewById(R.id.theme_switch);
-//        themeSwitch.setChecked(MainActivity.isSetToNightMode());
-//        themeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-//                MainActivity.setNightMode(checked);
-//                restartActivity();
-//            }
-//        });
 
         dialog = new Dialog(this);
 
@@ -140,7 +111,6 @@ public class LastScreen extends AppCompatActivity {
         });
 
         //Show detergent Reminder Popup first
-//        startTimer();
         detergentReminder();
     }
 
@@ -184,7 +154,6 @@ public class LastScreen extends AppCompatActivity {
         txt_start_pause.setText(R.string.s_start);
         txv_function.setText(R.string.s_on_pause);
 
-        TextView text;
         Button yes;
         Button no;
         dialog.setContentView(R.layout.popup_last_screen);
@@ -227,7 +196,24 @@ public class LastScreen extends AppCompatActivity {
             }
             @Override
             public void onFinish() {
-                // TODO on finish popup that washer has finished
+                // on finish popup that washer has finished
+                // pause washing
+                b_start_pause.setBackgroundResource(R.drawable.b_play);
+                txt_start_pause.setText(R.string.s_start);
+                txv_function.setText(R.string.s_on_pause);
+
+                dialog.setContentView(R.layout.popup_finish);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                Button b_ok = dialog.findViewById(R.id.b_ok);
+                b_ok.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent main = new Intent(LastScreen.this, MainActivity.class);
+                        startActivity(main);
+                        dialog.dismiss();
+                    }
+                });
+                dialog.show();
             }
         }.start();
     }

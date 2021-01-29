@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/round_corners">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="283dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/s_finish"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/finish_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/finish_image"
+        android:layout_width="400dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintBottom_toTopOf="@+id/b_ok"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:src="@drawable/laundry"
+        android:background="@android:color/white"
+        android:contentDescription="@string/s_finish"/>
+
+    <Button
+        android:id="@+id/b_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#F877F484"
+        android:text="@string/s_ok"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/finish_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
